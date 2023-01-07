@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="em_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. By how much does kinetic energy increase if the momentum is increased by 20%.",
+    answers:{
+     a:'55%',
+     b:'66%',
+     c:'44%',
+     d:'77%',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "2. Calculate the energy loss in a perfectly inelastic collision if the mass of the object is 40kg with velocity 4m/s hits the object of mass 60kg with velocity 2m/s.",
+    answers:{
+     a:'440J',
+     b:' 110J',
+     c:'392J',
+     d:'48J',
+    },
+   correctAnswer: 'd'
+  },
+ {
+   question: "3.Calculate the final kinetic energy of a block of mass if the mass of the block is 10kg and has a constant velocity of 10m/s. The block of mass is subjected to a retarding force of F=0.1J/m",
+   answers:{
+     a:' 275J',
+     b:'250J',
+     c:'475J',
+     d:'450J',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "4.What is the average power required to lift a mass of 100kg to a height of 50m in 50 seconds?",
+   answers:{
+     a:'980',
+     b:'100',
+     c:'50',
+     d:'5000',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.What is the power of the engine when the velocity of the car is v, mass m, acceleration a, and external resistance R ",
+   answers:{
+     a:' (R-ma)v',
+     b:'(R+ma)v',
+     c:'mav',
+     d:'Rv',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "6.When can one say that work is done on the body?",
+    answers:{
+     a:' When the body experiences force',
+     b:'When there is an increase in energy because of mechanical influence',
+     c:'When the body moves a certain distance',
+     d:'None of the above',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "7.What is the ratio of velocities of a nucleus that splits into two parts with radii 1:2.",
+   answers:{
+     a:' 6:1',
+     b:'2:1',
+     c:'8:1',
+     d:'4:1',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "8.The energy possessed by a body by the virtue of its position is called ______ ",
+    answers:{
+     a:'kinetic energy',
+     b:'Potential energy',
+     c:'Total energy',
+     d:'Position energy',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "9. The energy possessed by a body by the virtue of its motion is called ______.",
+    answers:{
+     a:'Kinetic energy',
+     b:'Potential energy',
+     c:'Total energy',
+     d:'Motion energy',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10.Energy is ________.",
+   answers:{
+     a:'Work',
+     b:'The ability to create work',
+     c:'Quantification of work',
+     d:' Force multiplied by displacement',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "11. Power is ______.",
+   answers:{
+     a:'Rate of doing work',
+     b:'Ability to do work',
+     c:'Rate of energy creation',
+     d:'Equivalent to work',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.The unit of energy has been named after ______ ",
+   answers:{
+     a:'James Prescott Joule',
+     b:'John Prescott Joule',
+     c:'Jammie Joule',
+     d:'Jessy Joule',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "13.Joule is a unit of",
+   answers:{
+     a:'force',
+     b:'work',
+     c:'power',
+     d:'none of the mentioned',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "14.In which category do potential and kinetic energy fall?",
+   answers:{
+     a:'Mechanical energy',
+     b:'Electrical energy',
+     c:'electrical energy',
+     d:'Usual energy',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15 How many Ergs are there in 1 Joule?",
+   answers:{
+     a:'10.',
+     b:'104',
+     c:'107.',
+     d:'109.',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.What is the correct expression for power?",
+   answers:{
+     a:'  P = dW/dt',
+     b:'P = F * d',
+     c:'P = E',
+     d:' P = dE/dt',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17. What is the correct expression for Work?.",
+    answers:{
+     a: ' W = F * ds',
+     b:'W = P/t',
+     c:' W = E',
+     d:'W = E/t',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Energy involved in creating work _____",
+   answers:{
+     a:'Gets used up',
+     b:'Gets transferred',
+     c:'Gets exhausted',
+     d:'Gets lost',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.When a body falls freely under gravity, then the work done by the gravity is ___________ ",
+   answers:{
+     a:'Positive',
+     b:'Negative',
+     c:'Zero',
+     d:'Infinity',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20 When a body slides against a rough horizontal surface, the work done by friction is ___________ ",
+    answers:{
+     a:'Positive',
+     b:'Zero',
+     c:'Negative',
+     d:'Constant',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

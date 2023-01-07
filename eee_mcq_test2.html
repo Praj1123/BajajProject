@@ -1,0 +1,370 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eee_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.The material are de-localized in which _____ is present. ",
+    answers:{
+     a:'Electrons',
+     b:'Protons',
+     c:'Neutrons',
+     d:'Positrons',
+     e:'None of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "2.India is producing Geothermal energy in____ ",
+    answers:{
+     a:'Mumbai',
+     b:'Kerala',
+     c:'Chennai',
+     d:' Himachal Pradesh',
+     e:'None of these'
+    },
+   correctAnswer: 'd'
+  },
+ {
+   question: "3.The efficiency of the solar cell is about ",
+   answers:{
+     a:' 25 %',
+     b:'15 %',
+     c:'40 %',
+     d:'40 %',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "4. For satellites the source of energy is",
+   answers:{
+     a:'Solar cell',
+     b:'Fuel cells',
+     c:'Edison cells',
+    d:'Cryogenic storage',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.In a fuel cell cathode is of ",
+   answers:{
+     a:'Oxygen',
+     b:'Ammonia ',
+     c:'Hydrogen',
+     d:' Carbon monoxide',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "6. Biomass is used in the production of ",
+    answers:{
+     a:'fibres ',
+     b:'chemicals ',
+     c:'  transportation fuels',
+     d:' biochemicals'
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "7.This is also called a biogas",
+   answers:{
+     a:'biobutanol ',
+     b:' biodiesel',
+     c:' bioethanol',
+     d:'biomethane',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "8.In biomethane, the percentage of carbon dioxide is ",
+    answers:{
+     a:'55-60',
+     b:'35-45',
+     c:'30-40',
+     d:'32-43',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "9.Bioethanol is mixed with ________ to prepare transport fuel ",
+    answers:{
+     a:'oil',
+     b:'petrol',
+     c:'kerosene',
+     d:'diesel',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10.The aerobic digestion of sewage is utilized in the production of ",
+   answers:{
+     a:' metal articles',
+     b:'biofuels',
+     c:'biomass',
+     d:'synthetic fuels',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "11.There are ____ types of OTEC plants. ",
+   answers:{
+     a:'3 ',
+     b:'2',
+     c:'1',
+     d:'None of these ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12. Fluid having ___ are used by the closed-cycle systems.",
+   answers:{
+     a:'High boiling points',
+     b:'High viscosity',
+     c:'Low boiling points',
+     d:'low viscosity',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13.Through a _______ to vaporize the fluid, warm surface sea water is pumped. ",
+   answers:{
+     a:'Condenser',
+     b:'Generator',
+     c:'Evaporator',
+     d:' Heat exchanger',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "14.The function of a heat exchanger is that it ____ the vapor into a liquid which is recycled.",
+   answers:{
+     a:'Evaporates',
+     b:'Heats',
+     c:'Cools',
+     d:'Condenses',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "15. ___surface water is used by open-cycle OTEC directly to generated electricity.",
+   answers:{
+     a:' Hot',
+     b:'Icy',
+     c:'Cool',
+     d:'Warm',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "16.The installed capacity of wind energy in India is about",
+   answers:{
+     a:'8000 MW',
+     b:'1500 MW',
+     c:' 6000 MW',
+     d:'4000 MW',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17.In a fuel cell, electrical energy is produced by ",
+    answers:{
+     a: 'Reaction of hydrogen with oxygen',
+     b:'Thermionic action',
+     c:'Combustion of fuel in the absence of oxygen.',
+     d:'None of the above.',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Tidal energy utilizes",
+   answers:{
+     a:'Kinetic energy of water',
+     b:'Potential energy of water.',
+     c:'Both (a) and (b)',
+     d:'None of these.',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.Thermal gradient in a geo thermal plant is given by ",
+   answers:{
+     a:'Heat flux * thermal conductivity',
+     b:' Heat flux / thermal conductivity',
+     c:'Thermal conductivity / heat flux',
+     d:'None of these',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20. Tidal energy development needs",
+    answers:{
+     a:'Huge capacity and long construction time.',
+     b:'Huge capacity and low construction time.',
+     c:' Low capacity and long construction time.',
+     d:' Low capacity and low construction time.',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

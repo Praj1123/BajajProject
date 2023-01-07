@@ -1,0 +1,368 @@
+
+<html>
+    <head>
+    <style>
+    #header{
+    height:50px;
+    width:100%;
+    background-color:#2EFFC6;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:5%;
+    color:black;
+    margin-bottom:20px;
+    }
+    body{
+      font-size: 20px;
+      font-family: sans-serif;
+      color:white;
+      background-color:black;
+    }
+    .question{
+      font-weight: 600;
+    }
+    .answers {
+        margin-bottom: 20px;
+    }
+    #submit{
+      font-family: sans-serif;
+      font-size: 20px;
+      background-color: #297;
+      color: #fff;
+      border: 0px;
+      border-radius: 3px;
+      padding: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #submit:hover{
+      background-color: #3a8;
+    }
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+    
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .round {
+      border-radius: 60%;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+    <a href="eg_index.html" class="previous round">Back</a>
+    </div>
+    <div id="quiz" style="margin-top:40px;">
+    <hr/>
+    </div>
+    <button id="submit">Show Result</button>
+    <div id="results"></div>
+    <script>
+    var myQuestions = [
+     { 
+        question: "1.To understand some of the hidden geometry of components an imaginary plane is used to cut the object which is called _____________",
+        answers:{
+         a: 'auxiliary planeHz',
+         b:'picture plane',
+         c:'section planez',
+         d:'additional plane',
+        },
+       correctAnswer: 'c'
+      },
+     {
+        question: "2.To find the true shape of the section, it must be projected on a plane parallel to the _____________",
+        answers:{
+          a: 'Profile plane',
+          b:' Vertical plane',
+          c:'Auxiliary plane',
+          d:'Section plane',
+        },
+       correctAnswer: 'd'
+      },
+     {
+        question: "3.A section plane is parallel to V.P the top view gives ___________ which is _________ to xy line.",
+        answers:{
+          a: 'true shape, parallel',
+          b:'straight line, parallel',
+          c:'straight line, perpendicular', 
+          d:'true shape, perpendicular',
+         
+        },
+       correctAnswer: 'b'
+      },
+      {
+       question: "4. The projection of a section plane, on the plane to which it is perpendicular is a straight line. ",
+        answers:{
+         a: 'True',
+         b:'False',
+         
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "5.The section plane is perpendicular to H.P and inclined to V.P the front view of section if section is a line. It ________________ xy line. ",
+        answers:{
+         a: ' is perpendicular to',
+         b:'is parallel to',
+         c:'is inclined to V.P',
+         d:'crosses',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "6.A section is perpendicular to both the reference planes the true shape and size is obtained by taking projection of section on to _________ plane. ",
+       answers:{
+         a: 'a) horizontal',
+         b:'vertical',
+         c:'profile',
+         d:'auxiliary',
+        },
+       correctAnswer: 'c'
+      },
+      {
+       question: "7.A regular triangular prism is resting on H.P and section plane is parallel to H.P and cutting the prism the section would be a _______________ ",
+        answers:{
+         a:'triangle',
+         b:'rectangle',
+         c:'trapezium',
+         d:'Eqparallelogramual',
+        },
+       correctAnswer: 'b'
+      },
+      {
+       question: "8.A cube is rested on H.P on one of its base such that base’s diagonal is perpendicular to V.P and section plane is parallel to V.P the section will be a __________ ",
+        answers:{
+         a:'triangle',
+         b:'rectangle',
+         c:'trapezium',
+         d:'parallelogram',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "9. A square pyramid is placed on V.P with square as base on V.P the cutting plane is parallel to H.P and also parallel to one edge of base, the section will be ____________ ",
+        answers:{
+         a:'triangler',
+         b:'rectangler',
+         c:'square',
+         d:'trapezium',
+        },
+       correctAnswer: 'd'
+      },
+      {
+       question: "10.A square pyramid is placed on V.P with square as base on V.P the cutting plane is parallel to V.P, the section will be ______________",
+        answers:{
+         a:'triangle',
+         b:'rectangle',
+         c:'square',
+         d:'pentagon',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "11. A pentagon pyramid is placed on V.P with square as base on V.P the cutting plane is parallel to H.P and parallel to edge of base, the section will be",
+        answers:{
+         a:'triangle',
+         b:'rectangle',
+         c:'trapezium',
+         d:'pentagon',
+        },
+       correctAnswer: 'c'
+      },
+      {
+       question: "12.A pentagon pyramid is placed on V.P with square as base on V.P the cutting plane is perpendicular to H.P and inclined to V.P and the section is cutting not more than 3 edges, the section will be __________",
+        answers:{
+         a:'triangle',
+         b:'trapezium',
+         c:'rhombus',
+         d:'irregular pentagon',
+        },
+       correctAnswer: 'd'
+      },
+      {
+       question: "13.A square pyramid is placed on H.P on its square base and section plane is perpendicular to V.P and inclined to H.P cutting given solid in such a way that the perpendicular distance from the ends of section to axis is same. The section will be _____________ ",
+        answers:{
+         a:'square',
+         b:'triangle',
+         c:'spring mass oscillators in vaccum ',
+         d:'None',
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "14. A regular octagonal pyramid of base side equal to 6 cm is resting on its octagon face on ground and section plane is parallel to axis and parallel to one of edges of base is held at a distance of 2 cm away from axis the section will be ____________ ",
+        answers:{
+         a:'triangle',
+         b:'trapezium',
+         c:'rectangle',
+         d:'octagon',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "15.A regular octagonal pyramid of base side equal to 6 cm is resting on its octagon face on ground and section plane is parallel to axis and not parallel to any of the edges of base is held at a distance of 4 cm away from axis the section will be ______________",
+        answers:{
+         a:'triangle',
+         c:'trapeziuml',
+         b:'rectangle',
+         d:'octagon',
+        },
+       correctAnswer: 'a'
+      },
+      {
+       question: "16.A cylinder is placed on H.P on its base and section plane is parallel to V.P cutting the solid the section gives ______________",
+        answers:{
+         a:'parabola',
+         b:'circle',
+         c:'rectangle',
+         d:'ellipse',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "17. A cylinder is placed on H.P on its base and section plane is parallel to H.P cutting the solid the section gives ______________",
+        answers:{
+         a:'parabola',
+         b:'circle',
+         c:'rectangle',
+         d:'ellipse',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "18. A cylinder is placed on H.P on its base and section plane is inclined to V.P and perpendicular to H.P cutting the solid the section gives ______________ ",
+        answers:{
+         a:'parabola',
+         b:'circle',
+         c:'circle',
+         d:'ellipse',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "19.A cylinder is placed on H.P on its base and section plane is inclined to H.P and perpendicular to V.P cutting only less than half of the generators of the solid the section gives ______________ ",
+        answers:{
+         a:'parabola',
+         b:'circle',
+         c:'ellipse',
+         d:'rectangle',
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "20.A cylinder is placed on V.P on its base and section plane is inclined to V.P and perpendicular to H.P cutting all the generators of the solid the section gives ______________",
+        answers:{
+         a:'parabola',
+         b:'circler',
+         c:'rectangle',
+         d:'ellipse',
+        },
+       correctAnswer: 'd'
+      },
+    ];
+    
+    var quizContainer = document.getElementById('quiz');
+    var resultsContainer = document.getElementById('results');
+    var submitButton = document.getElementById('submit');
+    
+    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+    
+    function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+    
+      function showQuestions(questions, quizContainer){
+        // we'll need a place to store the output and the answer choices
+        var output = [];
+        var answers;
+    
+    // for each question...
+        for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+    
+          // for each available answer...
+          for(letter in questions[i].answers){
+    
+            // ...add an html radio button
+            answers.push(
+              '<label>'
+                + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                + letter + ': '
+                + questions[i].answers[letter]
+              + '</label>'
+            );
+          }
+    
+          // add this question and its answers to the output
+          output.push(
+            '<div class="question">' + questions[i].question + '</div>'
+            + '<div class="answers">' + answers.join('') + '</div>'
+          );
+        }
+    
+        // finally combine our output list into one string of html and put it on the page
+        quizContainer.innerHTML = output.join('');
+      }
+    
+    
+      function showResults(questions, quizContainer, resultsContainer){
+        
+        // gather answer containers from our quiz
+        var answerContainers = quizContainer.querySelectorAll('.answers');
+        
+        // keep track of user's answers
+        var userAnswer = '';
+        var numCorrect = 0;
+        
+        // for each question...
+        for(var i=0; i<questions.length; i++){
+    
+          // find selected answer
+          userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+          
+          // if answer is correct
+          if(userAnswer===questions[i].correctAnswer){
+            // add to the number of correct answers
+            numCorrect++;
+            
+            // color the answers green
+            answerContainers[i].style.color = 'lightgreen';
+          }
+          // if answer is wrong or blank
+          else{
+            // color the answers red
+            answerContainers[i].style.color = 'red';
+          }
+        }
+    
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+      }
+    
+      // show questions right away
+      showQuestions(questions, quizContainer);
+      
+      // on submit, show results
+      submitButton.onclick = function(){
+        showResults(questions, quizContainer, resultsContainer);
+      }
+    
+    }
+    </script>
+    </body>
+    </html>

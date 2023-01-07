@@ -1,0 +1,369 @@
+
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eee_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+     question: "1. Total energy of a body is sum of",
+     answers:{
+     a: 'kinetic energies',
+     b:'potential energies',
+     c:'forces',
+     d:'both a and b',
+    },
+   correctAnswer: 'd'
+  },{
+     question: "2. 'Energy can neither be created nor be destroyed, but it can be changed from one form to another', this law is known as",
+     answers:{
+     a: 'kinetic energy',
+     b:'potential energy',
+     c:'conservation of energy', 
+     d:'conservation principle',
+    },
+   correctAnswer: 'c'
+  },
+ {
+     question: "3.  A nonrenewable energy is",
+     answers:{
+     a: 'wind',
+     b:'biomass',
+     c:'coal',
+     d:'tides',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "4. Source of geothermal energy is",
+     answers:{
+     a: 'sun',
+     b:'tides',
+     c:'Earth',
+     d:'Air',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "5.One of energies that is known as renewable energy is ",
+     answers:{
+     a: 'coal',
+     b:'oil',
+     c:'tides',
+     d:'natural gas',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "6. What is a load curve?",
+     answers:{
+     a: 'A plot of load vs current.',
+     b:'A plot of load vs time.',
+     c:'A plot of load vs duration of time.',
+     d:'Total number of units generated vs time',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "7. What does the highest point on the daily load curve represents?",
+     answers:{
+     a: 'Peak load.',
+     b:'Maximum demand.',
+     c:'Both (a) & (d).',
+     d:'None of these.',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "8.What does the area under the load curve represent? ",
+     answers:{
+     a: 'System voltage.',
+     b:'Current.',
+     c:'Energy consumed',
+     d:'Maximum demand.', 
+    
+    
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "9. Load curve of a generation is always",
+     answers:{
+     a: 'Positive slope.',
+     b:'Zero slope.',
+     c:'Negative slope.',
+     d:'Combination of (a), (b) and (c).',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "10.What does a mass curve represent? ",
+     answers:{
+     a: 'Average load.',
+     b:'The total energy consumed by the load upto a particular time in a day.',
+     c:'The number of hours for which a particular lasts during the day',
+     d:'The variation of load during different hours of the day.',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "11. If the daily load curve is divided by 24, what does this curve represent?",
+     answers:{
+     a: 'Average load for the day.',
+     b:'Connected load.',
+     c:'Maximum demand.',
+     d:'Demand factor.',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "12.The mass curve is plotted from which of the following curve? ",
+     answers:{
+     a: 'Chronological curve.',
+     b:'Energy load curve.',
+     c:'Load duration curve.',
+     d:'Both (a) and (b).',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "13.According to the Law of Conservation of Energy, the total amount of energy in the universe ______________. ",
+     answers:{
+     a: '.Increases',
+     b:'Remains Constant',
+     c:'Decreases',
+     d:'Change Constantly',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "14.Which device maintains a body at a temperature lower than the temperature of the surroundings? ",
+     answers:{
+     a: 'PMM1',
+     b:'PMM2',
+     c:'refrigerator',
+     d:'heat pump',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "15.What does a refrigerant do? ",
+     answers:{
+     a: 'absorbs the heat leakage into body from surroundings',
+     b:'evaporates in the evaporator',
+     c:'absorbs latent heat of vaporization form the body which is cooled',
+     d:'all of the mentioned',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "16. Coefficient of performance(COP) is defined as",
+     answers:{
+     a: 'heat leakage/work input',
+     b:'work input/heat leakage',
+     c:'latent heat of condensation/work input',
+     d:'work input/latent heat of condensation',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "17. Which device maintains a body at a temperature higher than the temperature of the surroundings?",
+     answers:{
+     a: 'PMM1',
+     b:'PMM2',
+     c:'refrigerator',
+     d:'heat pump',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "18.Which of the following statements are true? ",
+     answers:{
+     a: 'a heat pump provides a thermodynamic advantage over direct heating',
+     b:'COP for both refrigerator and pump cannot be infinity',
+     c:'work input for both refrigerator and pump is greater than zero',
+     d:'all of the mentioned',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "19. Kelvin-Planck’s and Clausius’ statements are",
+     answers:{
+     a: 'not connected to each other',
+     b:'virtually two parallel statements of second law',
+     c:'violation of one doesn’t violate the other',
+     d:'none of the mentioned',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "20.Pick up the wrong statement. A refrigerant should have ",
+     answers:{
+     a: 'Tow specific heat of liquid',
+     b:'high boiling point',
+     c:'high latent heat of vaporization',
+     d:'higher critical temperature',
+    },
+   correctAnswer: 'b'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+// for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+
+<html>
+    <head>
+    <style>
+    #header{
+    height:50px;
+    width:100%;
+    background-color:yellow;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:5%;
+    color:black;
+    margin-bottom:20px;
+    }
+    body{
+      font-size: 20px;
+      font-family: sans-serif;
+      color:white;
+      background-color:black;
+    }
+    .question{
+      font-weight: 600;
+    }
+    .answers {
+        margin-bottom: 20px;
+    }
+    #submit{
+      font-family: sans-serif;
+      font-size: 20px;
+      background-color: #297;
+      color: #fff;
+      border: 0px;
+      border-radius: 3px;
+      padding: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #submit:hover{
+      background-color: #3a8;
+    }
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+    
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .round {
+      border-radius: 60%;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+    <a href="em_index.html" class="previous round">Back</a>
+    </div>
+    <div id="quiz" style="margin-top:40px;">
+    <hr/>
+    </div>
+    <button id="submit">Show Result</button>
+    <div id="results"></div>
+    <script>
+    var myQuestions = [
+       {
+            question: "1. What is Engineering Mechanics?",
+            answers:{
+             a: 'Study of bodies under motion without considering forces',
+             b:'Application of mechanics to issues involving common engineering aspects',
+             c:'Study of bodies only under rest',
+              d:'Study of bodies only under motion',
+           },
+          correctAnswer: 'b'
+        },
+      {
+            question: "2. What is Mechanics",
+            answers:{
+             a: 'Branch of science which deals with failure analysis',
+             b:'Branch of science which deals with conditions of rest or motion of bodies',
+             c:'Branch of science which deals with the study of bodies only under rest',
+             d:'Branch of science which deals with the study of bodies only under motion',
+           },
+          correctAnswer: 'b'
+        },
+      {
+           question: "3.Which of the following is a branch of mechanics ",
+             answers:{
+             a: 'Statics and kinetics',
+             b:'Statics and dynamics',
+             c:'Kinematics and dynamics',
+             d:'Kinetics and kinematics',
+           },
+          correctAnswer: 'b'
+      },
+      {
+           question: "4.Which of the following is the basic law for mechanics ",
+           answers:{
+             a: 'Newtons law of viscosity',
+             b:'Parallelogram law',
+             c:'Newtons laws of motion',
+             d:'Hookes law',
+           },
+         correctAnswer: 'c'
+      },
+      {
+           question: "5.Which of the following is termed as an action of pull or push of a body at rest or motion ",
+           answers:{
+             a: 'Torque',
+             b:'Momentum',
+             c:'Work',
+             d:'Force',
+           },
+         correctAnswer: 'd'
+      },
+      {
+           question: "6.What is Kinematics? ",
+           answers:{
+             a: 'Branch of dynamics which deals with the study of bodies under motion without considering forces',
+             b:'Branch of dynamics which deals with the study of bodies at rest',
+             c:'Branch of dynamics which deals with the study of bodies under motion by considering forces',
+             d:'Branch of dynamics which deals with the study of bodies under the motion',
+           },
+         correctAnswer: 'a'
+      },
+      {
+            question: "7.Which of the following is the condition for the three-force theorem in mechanics? ",
+            answers:{
+             a: 'The force system should be in equilibrium only',
+             b:'The force systems should be non-coplanar',
+             c:'The system should be co-planar, parallel',
+             d:'The force system should be in equilibrium, co-planar, concurrent, or parallel',
+           },
+         correctAnswer: 'd'
+      },
+      {
+           question: "8. Which of the following is the SI unit of force?",
+           answers:{
+             a: 'Kg m',
+             b:'Kg m2',
+             c:'Kg m2/s',
+             d:'Kg m/s2',
+           },
+         correctAnswer: 'd'
+      },
+      {
+            question: "9.According to which of the following laws of mechanics a body remains/continue in its state of rest or motion until it is disturbed by an external agent? ",
+            answers:{
+             a: 'Newtons first law of motion',
+             b:'Newtons second law of motion',
+             c:'Newtons third law of motion',
+             d:'Superposition law',
+           },
+         correctAnswer: 'a'
+      },
+      {
+            question: "10.Which of the following is the characteristic of force? ",
+            answers:{
+              a: 'Magnitude of force',
+              b:'Point of application of force',
+              c:'Direction of application of force',
+             d:'All of the mentioned',
+           },
+         correctAnswer: 'd'
+      },
+      {
+            question: "11. When can two forces be in equilibrium?",
+            answers:{
+             a: 'They are equal in magnitude',
+             b:'They are collinear',
+             c:'They are opposite in direction',
+             d:'All of the mentioned',
+           },
+         correctAnswer: 'd'
+      },
+      {
+            question: "12. Which of the following statements describes the resultant of two forces?",
+            answers:{
+             a: 'Force that maintains the system in equilibrium',
+             b:'Force that has the highest magnitude in the system',
+             c:'Force that has the same effect as the two forces',
+             d:'Force that has the same effect as one force',
+           },
+          correctAnswer: 'c'
+      },
+      {
+            question: "13. The point of application where the total weight can be expected to be concentrated if the gravitational force is dispersed across the volume of the body is called ______",
+            answers:{
+             a: 'The surface of the body',
+             b:'The centroid of the body',
+             c:'Center of gravity of the body',
+             d:'Moment of inertia',
+           },
+         correctAnswer: 'c'
+      },
+      {
+            question: "14. What is a free-body diagram",
+            answers:{
+             a: 'it a sketch of a moving body that shows internal forces of the body and reaction forces',
+             b:'it a sketch of an undisturbed body that shows external forces of the body',
+             c:'it a sketch of an isolated body that shows external forces of the body and reaction forces',
+              d:'it a sketch of a body in motion that shows bending forces of the body',
+           },
+         correctAnswer: 'c'
+      },
+      {
+            question: "15.The internal force in structures among the following is? ",
+            answers:{
+             a: 'Gravity force',
+             b:'Compression force',
+             c:'Impact force',
+             d:'Bending force',
+           },
+          correctAnswer: 'b'
+      },
+      {
+           question: "16. Which of the following is a feature of friction?",
+           answers:{
+             a: 'Always acts in the direction opposite to the applied force',
+             b:'Not a self-adjusting force',
+             c:'Always acts in the direction of applied force',
+             d:'It is an active force',
+           },
+         correctAnswer: 'a'
+      },
+      {
+            question: "17. When there is no relative force between touching surfaces, which of the following force is developed?",
+            answers:{
+             a: 'Dry friction',
+             b:'Dynamic friction',
+             c:'Fluid friction',
+             d:'Static friction',
+           },
+         correctAnswer: 'd'
+      },
+      {
+            question: "18.When the surfaces of two bodies come in contact, there is a limited amount of resistance to sliding between them, which is known as _________ ",
+            answers:{
+             a: 'Lubrication',
+             b:'Friction',
+             c:'Internal forces',
+             d:'Attraction force',
+           },
+         correctAnswer: 'b'
+      },
+      {
+           question: "19.Which of the following does not affect frictional force? ",
+           answers:{
+             a: 'Surface roughness',
+             b:'Reaction of surface',
+             c:'Area of contact',
+             d:'Force tending cause motion',
+           },
+         correctAnswer: 'c'
+      },
+      {
+           question: "20.Which of the following is valid if two forces are represented by two sides of a triangle in order? ",
+           answers:{
+             a: 'The resultant of two forces is represented by the third side in the same sequence',
+             b:'The resultant of two forces is represented by the third side in reverse order',
+             c:'The resultant magnitude is zero',
+             d:'The resultant magnitude is greatest',
+           },
+          correctAnswer: 'b'
+      },
+    ];
+    
+    var quizContainer = document.getElementById('quiz');
+    var resultsContainer = document.getElementById('results');
+    var submitButton = document.getElementById('submit');
+    
+    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+    
+    function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+    
+      function showQuestions(questions, quizContainer){
+        // we'll need a place to store the output and the answer choices
+        var output = [];
+        var answers;
+    
+    
+    // for each question...
+        for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+    
+          // for each available answer...
+          for(letter in questions[i].answers){
+    
+            // ...add an html radio button
+            answers.push(
+              '<label>'
+                + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                + letter + ': '
+                + questions[i].answers[letter]
+              + '</label>'
+            );
+          }
+    
+          // add this question and its answers to the output
+          output.push(
+            '<div class="question">' + questions[i].question + '</div>'
+            + '<div class="answers">' + answers.join('') + '</div>'
+          );
+        }
+    
+        // finally combine our output list into one string of html and put it on the page
+        quizContainer.innerHTML = output.join('');
+      }
+    
+    
+      function showResults(questions, quizContainer, resultsContainer){
+        
+        // gather answer containers from our quiz
+        var answerContainers = quizContainer.querySelectorAll('.answers');
+        
+        // keep track of user's answers
+        var userAnswer = '';
+        var numCorrect = 0;
+        
+        // for each question...
+        for(var i=0; i<questions.length; i++){
+    
+          // find selected answer
+          userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+          
+          // if answer is correct
+          if(userAnswer===questions[i].correctAnswer){
+            // add to the number of correct answers
+            numCorrect++;
+            
+            // color the answers green
+            answerContainers[i].style.color = 'lightgreen';
+          }
+          // if answer is wrong or blank
+          else{
+            // color the answers red
+            answerContainers[i].style.color = 'red';
+          }
+        }
+    
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+      }
+    
+      // show questions right away
+      showQuestions(questions, quizContainer);
+      
+      // on submit, show results
+      submitButton.onclick = function(){
+        showResults(questions, quizContainer, resultsContainer);
+      }
+    
+    }
+    </script>
+    </body>
+    </html>

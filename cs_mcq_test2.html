@@ -1,0 +1,359 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="cs_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. Which of these do not deal with precise information?",
+    answers:{
+     a:'Engineer ',
+     b:'Scientist',
+     c:'Technician',
+     d:'Fiction writer ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "2. In an office, an employee communicates horizontally with his _______",
+    answers:{
+     a:'superiors ',
+     b:' subordinates ',
+     c:'colleagues ',
+     d:'assistant ',
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.Talking comes under which type of communication?  ",
+   answers:{
+     a:' Verbal ',
+     b:'Non- verbal ',
+     c:'Written ',
+     d:'Dramatic ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.Which of these has maximum reach?",
+   answers:{
+     a:'Writing ',
+     b:'Listening ',
+     c:'Speaking ',
+     d:'Talking',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.How is good technical writing achieved?",
+   answers:{
+     a:'Naturally ',
+     b:'By practice ',
+     c:'Listening ',
+     d:'Speaking',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "6.Which of these parameters are not required to define style?",
+    answers:{
+     a:' Moral truth ',
+     b:'Compassion ',
+     c:'Gender ',
+     d:'Information ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "7.Any style must convey moral truth.",
+   answers:{
+     a:' True ',
+     b:'False ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.Any writer must convey truth with warmth",
+    answers:{
+     a:'True ',
+     b:'False ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9. A writer must not convey information with _____",
+    answers:{
+     a:'precision',
+     b:'clarity',
+     c:'randomness',
+     d:'truth',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10.Which of these are to be avoided in any style of writing?",
+   answers:{
+     a:'Truth ',
+     b:'Clarity ',
+     c:'Compassion ',
+     d:' Dishonesty ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "11.The word communication is derived from _____",
+   answers:{
+     a:'communicare ',
+     b:'comunnicare ',
+     c:'comunicare ',
+     d:'communnicare ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.Communicare is a _____ word.  ",
+   answers:{
+     a:'French ',
+     b:'Latin ',
+     c:'German ',
+     d:'Indian ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.Which of these is the triangle of communication? ",
+   answers:{
+     a:'ABR ',
+     b:'ARD',
+     c:'ARC ',
+     d:'ARS ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "14.Non-verbal communication includes all external stimuli apart from words uttered. ",
+   answers:{
+     a:'True ',
+     b:'False ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15 Which of these should communication not advance?.",
+   answers:{
+     a:'Information    .',
+     b:'Affinity ',
+     c:'Reality     .',
+     d:'Personal desires .',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.Which of these is the greatest means of conveying information? ",
+   answers:{
+     a:'  Writing ',
+     b:'Words ',
+     c:'Signs ',
+     d:' Pictures ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "17. There is a barrier to communication when words are uttered in a ______ sense.",
+    answers:{
+     a: ' negative',
+     b:'positive',
+     c:' polite ',
+     d:'good ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Personal appearance is an element of non-verbal communication. ",
+   answers:{
+     a:'True ',
+     b:'False ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.Which of these is not an element of non- verbal communication? ",
+   answers:{
+     a:'Personal appearance ',
+     b:'Posture ',
+     c:'Eye contact ',
+     d:'Name of the speaker ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "20 Which of these is a main element of non-verbal communication?",
+    answers:{
+     a:'The volume of the speaker',
+     b:'Name of the speaker',
+     c:'Name of the listener',
+     d:'Age of the speaker',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

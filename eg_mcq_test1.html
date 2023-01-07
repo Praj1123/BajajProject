@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eg_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. Which of the following is not a line segment? ",
+    answers:{
+     a:'Bamboo',
+     b:'Ruler',
+     c:'Laser beam',
+     d:'Pencil',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "2. The angle bisector bisects the angle exactly _____",
+    answers:{
+     a:'Perpendicular',
+     b:'60 degree',
+     c:'Half',
+     d:'Any ratio',
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.What must you be given to construct an equilateral triangle by compass? ",
+   answers:{
+     a:'One side',
+     b:'One angle',
+     c:' Two side',
+     d:'One angle and one side',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.Which of the property given below is false regarding a square? ",
+   answers:{
+     a:' A square is a particular case of a rectangle and a rhombus simultaneously',
+     b:' A square is a parallelogram with right angles and equal sides',
+     c:'The diagonals of a square cut at 90 degree',
+     d:'A square is a particular case of a rectangle only',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "5. If you are given only a compass and a ruler which angle is not possible to construct? ",
+   answers:{
+     a:'37.5',
+     b:'33.75 ',
+     c:'40',
+     d:'120',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "6. N number of circles are formed with a common centre, what is that geometry called?",
+    answers:{
+     a:'Inscribed circle',
+     b:'Sphere',
+     c:'Circumscribed circle',
+     d:'Concentric circle',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "7. What is the value of each angle of a regular hexagon? ",
+   answers:{
+     a:'120',
+     b:'135',
+     c:'720',
+     d:'108',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8. What is the below instrument called?",
+    answers:{
+     a:'Set square',
+     b:'Straightedge',
+     c:'T-square',
+     d:'Opisometer',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "9. If X is a point on AB and A – X – B (X is between A and B), then AB =? ",
+    answers:{
+     a:'AX + XB',
+     b:'AB – XB',
+     c:' AB – XA',
+     d:'AX – XB',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10. Which geometric principle is used to justify the construction below?",
+   answers:{
+     a:'A line perpendicular to one of two parallel lines is perpendicular to the other',
+     b:'Two lines are perpendicular if they intersect to form congruent adjacent angles',
+     c:'When two lines are intersected by a transversal and alternate interior angles are congruent, the lines are parallel',
+     d:'When two lines are intersected by a transversal and alternate interior angles are congruent, the lines are parallel',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "11.Find angle BDC shown in the figure below.",
+   answers:{
+     a:'30',
+     b:'65',
+     c:'60',
+     d:'45',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "12.What is the value of each angle of a regular hexagon? ",
+   answers:{
+     a:'120',
+     b:'135',
+     c:'720',
+     d:'108',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "13.The following is not included in title block of drawing sheet. ",
+   answers:{
+     a:'Sheet No',
+     b:'Scale',
+     c:'Method of Projection',
+     d:'Size of sheet',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "14.Which of the following represent reducing scale?",
+   answers:{
+     a:'1:1',
+     b:'1:2',
+     c:'2:1',
+     d:'10:1',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "15.In first angle projection method, object is assumed to be placed in ",
+   answers:{
+     a:'First quadrant',
+     b:'Second quadrant',
+     c:'Third Quadrant',
+     d:'Fourth quadrant',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "16.The following line is used for visible outlines ",
+   answers:{
+     a:'Continuous thick',
+     b:'Continuous thin',
+     c:'Chain thin line',
+     d:'Short zigzag thin',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17.The dotted lines represents ",
+    answers:{
+     a: 'Hidden edges',
+     b:'Projection line',
+     c:'Centre line',
+     d:'Hatching line',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Hatching lines are drawn at ___ degree to reference line",
+   answers:{
+     a:'30',
+     b:'45',
+     c:'60',
+     d:'90',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.In aligned system of dimensioning, the dimensions may be read from ",
+   answers:{
+     a:'Bottom or right hand edges',
+     b:'Bottom or left hand edges',
+     c:'Only from bottom',
+     d:'Only from left side',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20.The Length:Width in case of an arrow head is ",
+    answers:{
+     a:'1:1',
+     b:'2:1',
+     c:'3:1',
+     d:'4:1',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

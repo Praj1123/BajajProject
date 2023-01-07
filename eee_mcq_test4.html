@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eee_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.Which of the following statement about the forest is not correct ",
+    answers:{
+     a:'Forest reduces soil erosion',
+     b:' Provides recreational opportunities',
+     c:'Provides economic development',
+     d:' None of the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "2.Formation of ozone is ",
+    answers:{
+     a:'oxidation reaction',
+     b:'reduction reaction',
+     c:'photochemical reaction',
+     d:'none of these',
+    },
+   correctAnswer: 'a'
+  },
+ {
+   question: "3.Zone consisting air, water and soil is known as",
+   answers:{
+     a:'Hydrosphere',
+     b:'Atmosphere',
+     c:'Lithosphere',
+     d:'Biosphere',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "4. Atomospheric ozone layer which protect us from UV-B & C is getting depleted most by addition of ",
+   answers:{
+     a:'Chloro flurocarbon',
+     b:'Carbon monoxide',
+     c:' Carbon dioxide',
+     d:' Sulpur dioxide',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5. Elements of environment are",
+   answers:{
+     a:' Nitrogen, Carbondioxide, Oxygen',
+     b:' Nitrogen, Oxygen, Ozone ',
+     c:'Carbondioxide, Oxygen, Ozone',
+     d:' Lithosphere, Atmosphere, Hydrosphere and Biosphere',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "6. “Green house effect” with respect to global warming refers to",
+    answers:{
+     a:' Cooling & moist condition',
+     b:'Warming effect',
+     c:'Increased rainfall & greenery',
+     d:'Desertification',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "7.The layers of atmosphere consists of",
+   answers:{
+     a:'Troposphere, Stratosphere, Mesosphere and Thermosphere',
+     b:'Hydrosphere and biosphere',
+     c:'Lithosphere and Hydrosphere',
+     d:'Biosphere and Hydrosphere',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.Air pollution is caused by ",
+    answers:{
+     a:'Spray and fumes',
+     b:'Sewage',
+     c:'Biomedical Waste',
+     d:'Loud speakers',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9.Which of the following is a non-renewable resource? ",
+    answers:{
+     a:'Coal',
+     b:'Forest',
+     c:'Water',
+     d:'Wildlife',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10.When trees are cut, amount of oxygen ",
+   answers:{
+     a:'decreases',
+     b:'increases',
+     c:'both (a) and (b)',
+     d:'remains same',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "11.71% of earth surface is covered with: ",
+   answers:{
+     a:'land',
+     b:'air',
+     c:'water',
+     d:'coal',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "12. Which of the following is secondary pollutant ",
+   answers:{
+     a:'CO2',
+     b:'CO',
+     c:'O3',
+     d:'SO2',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13. All are particulate pollutants expect ",
+   answers:{
+     a:'Dust',
+     b:'ozone',
+     c:'fly ash',
+     d:'smoke',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "14. The pollutant free energy resource are,",
+   answers:{
+     a:'coal',
+     b:'nuclear power',
+     c:'petroleum',
+     d:'solar energy',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "15. Which of the following is not air pollutant",
+   answers:{
+     a:'CO',
+     b:'Carbon dioxideCFC',
+     c:'CFC',
+     d:' oxygen',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "16. The atmosphere of big cities is polluted most by,",
+   answers:{
+     a:' household waste',
+     b:'radioactive falls out',
+     c:'automobile exhausts',
+     d:' pesticides',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "17.Green House effect is caused by ",
+    answers:{
+     a: ' Increase in CO2',
+     b:' Increase in O2',
+     c:'Decrease in O2',
+     d:'Decrease in CO2',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18. Acid rain contains",
+   answers:{
+     a:'Sulphuric acid',
+     b:'Hydrochloric acid',
+     c:'Oxalic acid',
+     d:'Acetic acid',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19‘Smog’ is a mixture of. ",
+   answers:{
+     a:'Smoke and Fog,',
+     b:'Snow and Fog,',
+     c: 'Snow and Dust,',
+     d:'Sulphur Dioxide and Fog',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20.Extensive planting of trees to increase forest cover is called  ",
+    answers:{
+     a:'Afforestation ',
+     b:'Agroforestry',
+     c:'Deforestation',
+     d:'social forestry',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

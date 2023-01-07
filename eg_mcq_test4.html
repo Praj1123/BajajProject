@@ -1,0 +1,364 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eg_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.When the axis of a solid is parallel to a plane, the projection of the solid shows the true shape and size of its base. ",
+    answers:{
+     a:'False',
+     b:'True',
+     
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "2. When the axis of a solid perpendicular to H.P__________ should be drawn first.",
+    answers:{
+     a:'Top view',
+     b:'Front view',
+     c:' Side view',
+     d:'Rare view',
+    },
+   correctAnswer: 'a'
+  },
+ {
+   question: "3. When the axis of a solid perpendicular to V.P, __________ should be drawn first. ",
+   answers:{
+     a:' Top view',
+     b:' Front view',
+     c:'Side view',
+     d:'Rare view',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "4.When the axis of a solid parallel to H.P and V.P, __________ should be drawn first. ",
+   answers:{
+     a:'Top view',
+     b:'Front view',
+     c:'Side view',
+     d:'Rare view',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "5.While drawing a projection, if the first top view is drawn and then the front view is projected from the top view. Then the axis of the solid is __ ",
+   answers:{
+     a:'Parallel to V.P and H.P',
+     b:'  Perpendicular to V.P',
+     c:'Perpendicular to H.P',
+     d:' Inclined to H.P',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "6. When a solid is placed such that axis is inclined with the V.P and parallel to the H.P. Its projections are drawn in ___________ stages.",
+    answers:{
+     a:'1',
+     b:'4',
+     c:'2',
+     d:'3',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "7.A hexagonal pyramid first placed in such a way its axis is perpendicular to H.P and one edge AB parallel to V.P and then next this is turned about its axis so the base AB is now making some angle with V.P. The top view for previous and later one will be having the same shape. ",
+   answers:{
+     a:'True',
+     b:'False',
+     
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.A regular cone first placed in such a way its axis is perpendicular to V.P and next this is tilted such that its base is making some acute angle with V.P. The top view for previous and later one will be. ",
+    answers:{
+     a:' Triangle, triangle',
+     b:'irregular shape of circle and triangle, triangle',
+     c:'triangle, irregular shape of circle and triangle',
+     d:'circle, triangle',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9.A regular cone first placed in such a way its axis is perpendicular to V.P and next this is tilted such that its base is making some acute angle with V.P. The front view for previous and later one will be having same shape. ",
+    answers:{
+     a:'True',
+     b:'False',
+     
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10.A regular pentagon prism first placed in such a way its axis is perpendicular to V.P and one edge is parallel to H.P and next this is tilted such that its axis is making some acute angle with V.P. The front view for previous and later one will be ____ ",
+   answers:{
+     a:'pentagon, pentagon',
+     b:'rectangle, pentagon',
+     c:' pentagon, irregular hexagon',
+     d:'irregular hexagon, pentagon',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11.A cylinder first placed in such a way its axis is perpendicular to V.P and next this is tilted such that its axis is making some acute angle with V.P. The front view for previous and later one will be _____",
+   answers:{
+     a:'circle, rectangle with circular ends',
+     b:' rectangle, rectangle',
+     c:'rectangle with circular ends, rectangle',
+     d:'circle, rectangle',
+    },
+   correctAnswer: ''
+  },
+  {
+    question: "12.  A cylinder first placed in such a way its axis is perpendicular to V.P and next this is tilted such that its axis is making some acute angle with V.P. The top view for previous and later one will be _____",
+   answers:{
+     a:' circle, rectangle with circular ends',
+     b:'rectangle, rectangle',
+     c:'rectangle with circular ends, rectangle',
+     d:'circle, rectangle',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.A triangular pyramid is placed such that its axis is perpendicular to V.P and one of its base’s edges is parallel to H.P the front view and top view will be ___ ",
+   answers:{
+     a:' Triangle of base, triangle due to slanting side',
+     b:'Triangle due to slanting side, triangle of base',
+     c:'Triangle of base, rhombus',
+     d:'Rhombus, triangle of base',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14. A square pyramid is placed such that its axis is inclined to V.P and one of its base’s edges is parallel to H.P the front view and top view will be ___",
+   answers:{
+     a:'Square, Isosceles triangle',
+     b:'Irregular pentagon, square',
+     c:' Irregular pentagon, isosceles triangle',
+     d:'Pentagon, equilateral triangle',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "15. A square prism is placed such that its axis is inclined to V.P and one of its base’s edges is parallel to H.P the front view and top view will be ___",
+   answers:{
+     a:'Square, irregular polygon',
+     b:'Irregular polygon, rectangle',
+     c:'Rectangle, irregular polygon',
+     d:'Pentagon, square',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "16. A regular cone having its axis parallel to H.P and perpendicular to V.P at first but then the cone’s axis keeping parallel to H.P and rotated such that its new axis is perpendicular to the previous axis. The front view of the previous and later one is ____",
+   answers:{
+     a:' Circle, triangle',
+     b:'Circle, triangle with circular base',
+     c:'Triangle, triangle',
+     d:'Circle, circle',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17.A regular cone having its axis parallel to H.P and perpendicular to V.P at first but then the cone’s axis keeping parallel to H.P and rotated such that its new axis is perpendicular to previous axis. The top view of the previous and later one is _ ",
+    answers:{
+     a: 'Circle, triangle',
+     b:'Circle, triangle with circular base',
+     c:' Triangle, triangle',
+     d:'Circle, circle',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "18.A tetrahedron is made to place on V.P that is with its axis perpendicular to it and one of the edges of base parallel to H.P and then the tetrahedron is made to rotate w.r.t to V.P up to an acute angle. The top view of previous and later one is ___",
+   answers:{
+     a:'isosceles triangle, isosceles triangle',
+     b:' equilateral triangle, isosceles triangle',
+     c:'equilateral triangle, square',
+     d:'square, irregular polygon of 4 sides',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.A tetrahedron is made to place on V.P that is with its axis perpendicular to it and one of the edges of base parallel to H.P and then the tetrahedron is made to rotate w.r.t to V.P up to an acute angle. The top view of previous and later one is ___ ",
+   answers:{
+     a:'isosceles triangle, isosceles triangle',
+     b:'equilateral triangle, isosceles triangle',
+     c:'equilateral triangle, square',
+     d:'square, irregular polygon of 4 sides',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20.A cylinder first placed in such a way its axis is perpendicular to H.P and next this is tilted such that its axis is making some acute angle with H.P. The top view for previous and later one will be _____ ",
+    answers:{
+     a:'circle, rectangle with circular ends',
+     b:' rectangle, rectangle',
+     c:'rectangle with circular ends, rectangle',
+     d:' circle, rectangle',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

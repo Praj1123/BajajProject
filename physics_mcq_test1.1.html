@@ -1,0 +1,368 @@
+
+<html>
+    <head>
+    <style>
+    #header{
+    height:50px;
+    width:100%;
+    background-color:#2EFFC6;
+    text-align:center;
+    padding-top:2%;
+    padding-bottom:5%;
+    color:black;
+    margin-bottom:20px;
+    }
+    body{
+      font-size: 20px;
+      font-family: sans-serif;
+      color:white;
+      background-color:black;
+    }
+    .question{
+      font-weight: 600;
+    }
+    .answers {
+        margin-bottom: 20px;
+    }
+    #submit{
+      font-family: sans-serif;
+      font-size: 20px;
+      background-color: #297;
+      color: #fff;
+      border: 0px;
+      border-radius: 3px;
+      padding: 20px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #submit:hover{
+      background-color: #3a8;
+    }
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+    
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .round {
+      border-radius: 60%;
+    }
+    </style>
+    </head>
+    <body>
+    <div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+    <a href="notes_containt.html" class="previous round">Back</a>
+    </div>
+    <div id="quiz" style="margin-top:40px;">
+    <hr/>
+    </div>
+    <button id="submit">Show Result</button>
+    <div id="results"></div>
+    <script>
+    var myQuestions = [
+     { 
+        question: "1.If time period of an oscillation is 0.40 s, then it's frequency is ",
+        answers:{
+         a: '2Hz',
+         b:'2.5Hz',
+         c:'3Hz',
+         d:'3.5Hz',
+        },
+       correctAnswer: 'b'
+      },
+     {
+        question: "2.As amplitude of resonant vibrations decreases, degree of damping ",
+        answers:{
+          a: 'Increase',
+          b:'Remains same',
+          c:'decrease',
+          d:'Varies',
+        },
+       correctAnswer: 'c'
+      },
+     {
+        question: "3.In Magnetostriction effect the change in the length is independent of ",
+        answers:{
+          a: 'Nature of bar',
+          b:'Magnitude of field',
+          c:'Direction of magnetic field',
+         
+        },
+       correctAnswer: 'c'
+      },
+      {
+       question: "4.The oscillations performed by spring mass oscillator in water are ",
+        answers:{
+         a: 'Free',
+         b:'Damped',
+         c:'Forced',
+         d:'None',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "5.The human ear can hear the sound waves between ",
+        answers:{
+         a: '20Hz to 200kHz',
+         b:'2Hz to 20 KHz',
+         c:'20Hz to 20 KHz',
+         d:'200Hz to 200 KHz',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "6.The sound waves having frequency greater than 20 KHZ are known as ",
+       answers:{
+         a: 'Infrasonic waves',
+         b:'Ultrasonic Waves',
+         c:'Audible range',
+         d:'Transverse Waves',
+        },
+       correctAnswer: 'b'
+      },
+      {
+       question: "7.Compared to audible rage, infrasonic waves have frequencies ",
+        answers:{
+         a:'Greater',
+         b:'Medium',
+         c:'Less',
+         d:'Equal',
+        },
+       correctAnswer: 'b'
+      },
+      {
+       question: "8.Magnetostriction method is used when frequencies needed are ",
+        answers:{
+         a:'200 KHz',
+         b:'50 kHz',
+         c:'100 kHz',
+         d:'500 KHZ',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "9.The ferromagnetic rod sends out ultrasonic waves, if the applied frequency & ultrasonic frequency are ",
+        answers:{
+         a:'In the same order',
+         b:'Out of order',
+         c:'Mismatch with each other',
+         d:'Overlapping each other',
+        },
+       correctAnswer: 'a'
+      },
+      {
+       question: "10.In magnetostriction method, resonant vibrations occur when the natural frequency of the rod is same as the frequency of the ",
+        answers:{
+         a:'Grid circuit',
+         b:'input circuit',
+         c:'output circuit',
+         d:'plate circuit',
+        },
+       correctAnswer: 'd'
+      },
+      {
+        question: "11.Ultrasonic waves are produced when the quartz crystal is set into ",
+        answers:{
+         a:'Electric vibrations',
+         b:'Magnetic Vibrations',
+         c:'Mechanical Vibrations',
+         d:'Electromagnetic Vibrations',
+        },
+       correctAnswer: 'c'
+      },
+      {
+       question: "12.In resonance amplitude is large because external periodic force and velocity of body are ",
+        answers:{
+         a:'In phase',
+         b:'out of phase by π/2',
+         c:'Out of phase by π',
+         d:'None',
+        },
+       correctAnswer: 'a'
+      },
+      {
+       question: "13. Which of the following is the example of damped oscillations ",
+        answers:{
+         a:'Pendulum in air',
+         b:'Pendulum in vaccum',
+         c:'spring mass oscillators in vaccum ',
+         d:'None',
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "14.In spring mass oscillator,if m=1 kg and k=16 N/M, then natural frequency of oscillator is ",
+        answers:{
+         a:'0.64Hz',
+         b:'60Hz',
+         c:'6 KHz',
+         d:'6.4MHz',
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "15.Ultrasonic waves can not be produced by ",
+        answers:{
+         a:'Radio frequency  oscillator withd diaphragm loudspeaker',
+         c:'Radio frequency oscillator with Quartz crystal',
+         b:'Radio frequency oscillator with nickel crystal',
+         d:'all of the above',
+        },
+       correctAnswer: 'a'
+      },
+      {
+       question: "16.An ultrasonic source of 0.07 MHz sends down a pulse towards the sea bed, which returns after 0.65 sec. The velocity of sound in sea water is 1700 m / sec. ",
+        answers:{
+         a:'52.5m',
+         b:'590m',
+         c:'490m',
+         d:'500m',
+        },
+       correctAnswer: 'a'
+      },
+      {
+        question: "17.when a rod of ferromagnetic material is placed in a steady magnetic field parallel to its length, the rod undergoes ",
+        answers:{
+         a:'No change in length',
+         b:'Large change in length',
+         c:'Small change in length',
+         d:'None of above',
+        },
+       correctAnswer: 'c'
+      },
+      {
+        question: "18.Two vibrating systems are said to be in resonance if their ",
+        answers:{
+         a:'Amplitudes are equal',
+         b:'equencies are equal',
+         c:'Phase same',
+         d:'None of these',
+        },
+       correctAnswer: 'b'
+      },
+      {
+        question: "19.The forces acting in forecd oscillations are ",
+        answers:{
+         a:'Restoring',
+         b:'Frictional',
+         c:'External periodic',
+         d:'All',
+        },
+       correctAnswer: 'd'
+      },
+      {
+        question: "20.In which of the following oscillations the amplitude varies with time ",
+        answers:{
+         a:'Damped Oscillator',
+         b:'Forced Oscillator',
+         c:'Undamped Oscillator',
+         d:'None of these',
+        },
+       correctAnswer: 'b'
+      },
+    ];
+    
+    var quizContainer = document.getElementById('quiz');
+    var resultsContainer = document.getElementById('results');
+    var submitButton = document.getElementById('submit');
+    
+    generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+    
+    function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+    
+      function showQuestions(questions, quizContainer){
+        // we'll need a place to store the output and the answer choices
+        var output = [];
+        var answers;
+    
+    // for each question...
+        for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+    
+          // for each available answer...
+          for(letter in questions[i].answers){
+    
+            // ...add an html radio button
+            answers.push(
+              '<label>'
+                + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                + letter + ': '
+                + questions[i].answers[letter]
+              + '</label>'
+            );
+          }
+    
+          // add this question and its answers to the output
+          output.push(
+            '<div class="question">' + questions[i].question + '</div>'
+            + '<div class="answers">' + answers.join('') + '</div>'
+          );
+        }
+    
+        // finally combine our output list into one string of html and put it on the page
+        quizContainer.innerHTML = output.join('');
+      }
+    
+    
+      function showResults(questions, quizContainer, resultsContainer){
+        
+        // gather answer containers from our quiz
+        var answerContainers = quizContainer.querySelectorAll('.answers');
+        
+        // keep track of user's answers
+        var userAnswer = '';
+        var numCorrect = 0;
+        
+        // for each question...
+        for(var i=0; i<questions.length; i++){
+    
+          // find selected answer
+          userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+          
+          // if answer is correct
+          if(userAnswer===questions[i].correctAnswer){
+            // add to the number of correct answers
+            numCorrect++;
+            
+            // color the answers green
+            answerContainers[i].style.color = 'lightgreen';
+          }
+          // if answer is wrong or blank
+          else{
+            // color the answers red
+            answerContainers[i].style.color = 'red';
+          }
+        }
+    
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+      }
+    
+      // show questions right away
+      showQuestions(questions, quizContainer);
+      
+      // on submit, show results
+      submitButton.onclick = function(){
+        showResults(questions, quizContainer, resultsContainer);
+      }
+    
+    }
+    </script>
+    </body>
+    </html>

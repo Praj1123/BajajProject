@@ -1,0 +1,369 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="c_programming.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. What is a structure in C language? ",
+    answers:{
+     a:' A structure is a collection of elements that can be of same datatype',
+     b:'A structure is a collection of elements that can be of different datatype',
+     c:'Elements of a structure are called members',
+     d:' All of the these',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "2.What is the size of a C structure? ",
+    answers:{
+     a:' C structure is always 128 bytes',
+     b:'Size of C structure is the totatl bytes of all elements of structure',
+     c:'Size of C structure is the size of largest elements',
+     d:'None of the above',
+     
+    },
+   correctAnswer: 'b'
+  },
+ {
+   question: "3. Choose a correct statement about C structure elements? ",
+   answers:{
+     a:'Structure elements are stored on random free memory locations',
+     b:'structure elements are stored in register memory locations',
+     c:' structure elements are stored in contiguous memory locations',
+     d:'None of the above',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "4.A C structure or User defined datatype is also called ___ ",
+   answers:{
+     a:'Derived data type',
+     b:' Secondary data type',
+     c:'Aggregate data type',
+     d:' All the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "5.What are the uses of C Structures? ",
+   answers:{
+     a:' structure is used to implement Linked Lists, Stack and Queue data structures',
+     b:'Structures are used in Operating System functionality like Display and Input taking',
+     c:'Structure are used to exchange information with peripherals of PC',
+     d:'All the above,'
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "6.Which of the following return-type cannot be used for a function in C? ",
+    answers:{
+     a:'char *',
+     b:'struct',
+     c:'void',
+     d:'none of the mentioned',
+    },
+   correctAnswer: ''
+  },
+  {
+    question: "7. Choose a correct statement about C structures. ",
+   answers:{
+     a:' A structure can contain same structure type member',
+     b:'A structure size is limited by only physical memory of that PC',
+     c:'You can define an unlimited number of members inside a structure',
+     d:'All the above',
+    },
+   correctAnswer: 'd                                                                            '
+  },
+  {
+   question: "8. Which of the following operation is illegal in structures?",
+    answers:{
+     a:' Typecasting of structure>',
+     b:' Pointer to a variable of the same structure>',
+     c:'Dynamic allocation of memory for structure>',
+     d:' All of the mentioned>',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9.Which of the following is not possible under any scenario? ",
+    answers:{
+     a:'s1 = &s2;',
+     b:'s1 = s2;',
+     c:'(*s1).number = 10;',
+     d:' None of the mentioned',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "10.Presence of code like “s.t.b = 10” indicates _____ ",
+   answers:{
+     a:'Syntax Error',
+     b:' Structure',
+     c:'double data type',
+     d:'An ordinary variable name',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "11. Which of the following are themselves a collection of different data types? ",
+   answers:{
+     a:'String',
+     b:'Structure',
+     c:'Char',
+     d:'All of the mentioned',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "12. Which of the following cannot be a structure member?",
+   answers:{
+     a:'Another structure',
+     b:'Function',
+     c:'Array',
+     d:' None of the mentioned',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.What are the types of data allowed inside a structure? ",
+   answers:{
+     a:' int, float, double, long double',
+     b:'char, enum, union',
+     c:'pointers and Same structure type members',
+     d:'All the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "14.What is actually passed if you pass a structure variable to a function?",
+   answers:{
+     a:'Copy of structure variable',
+     b:'Reference of structure variable',
+     c:'Starting address of structure variable',
+     d:'Ending address of structure variable',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15.Which of the following return-type cannot be used for a function in C? ",
+   answers:{
+     a:'An array stores only elements of same type. Accessing elements is easy',
+     b:'A structure is preferred when different type elements are to be combined as a single entity',
+     c:'An array implementation has performance improvements to structure',
+     d:'All the above',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "16. Which properly declares a variable of struct foo?",
+   answers:{
+     a:'struct foo;',
+     b:'struct foo var;',
+     c:' foo;',
+     d:'int foo;',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "17.What is actually passed if you pass a structure variable to a function? ",
+    answers:{
+     a: 'Copy of structure variable',
+     b:'Reference of structure variable',
+     c:'Starting address of structure variable',
+     d:'Ending address of structure variable',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Which of the following operation is illegal in structures?",
+   answers:{
+     a:' Typecasting of structure',
+     b:'Pointer to a variable of the same structure',
+     c:'Dynamic allocation of memory for structure',
+     d:'All of the mentioned',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.Which of the following uses structure? ",
+   answers:{
+     a:'Array of structures',
+     b:' Linked Lists',
+     c: 'Binary Tree',
+     d:'All of the mentioned',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "20.The type of the controlling expression of a switch statement cannot be of the type ______ ",
+    answers:{
+     a:'int',
+     b:'char',
+     c:'short',
+     d:'float',
+     d:'long',
+    },
+   correctAnswer: 'd'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1278 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: #2EFFC6;
+      width: 100%;
+      height: 100%;
+    }
+
+    #header {
+      width: 100%;
+      height: 10%;
+      background-color: #2EFFC6;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .previous {
+      background-color: #f1f1f1;
+      color: black;
+    }
+
+    .next {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    .round {
+      border-radius: 60%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px">
+      <a href="notes_containt.html" class="previous round">Back</a>
+    </div>
+  </div>
+
+
+  <div id="body">
+    <p>&nbsp;</p>
+    <p class="question"> Q.1 I have……this movie before.
+    </p>
+    <ul class="answers">
+
+      <label> A) been watching </label> <br>
+      <label> B) watched </label> <br>
+      <label> C)watching </label> <br>
+      <label> D) watches </label> <br>
+
+    </ul>
+
+    <style>
+      #q1more {
+        display: none;
+      }
+    </style>
+
+    <span id="q1dots"></span>
+    <span id="q1more">
+      ANSWER= (B)watched<br>
+
+    </span>
+    <br>
+
+    <button id="q1mybtn" onclick="q1function()">Check Answer </button>
+
+    <script>
+      function q1function() {
+        var q1dots = document.getElementById("q1dots");
+        var q1moreText = document.getElementById("q1more");
+        var q1btnText = document.getElementById("q1mybtn");
+
+        if (q1dots.style.display === "none") {
+          q1dots.style.display = "inline";
+          q1btnText.innerHTML = "Check Answer";
+          q1moreText.style.display = "none";
+        }
+        else {
+          q1dots.style.display = "none";
+          q1btnText.innerHTML = "Hide Answer";
+          q1moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.2 He often ........ to the cinema because he loves movies.
+
+    </p>
+    <ul class="answers">
+
+      <label> A) going </label> <br>
+      <label> B)goes </label> <br>
+      <label> C) is going </label> <br>
+      <label> D) go </label> <br>
+
+    </ul>
+
+    <style>
+      #q2more {
+        display: none;
+      }
+    </style>
+
+    <span id="q2dots"></span>
+    <span id="q2more">
+      ANSWER= (B)goes <br>
+
+    </span>
+    <br>
+
+    <button id="q2mybtn" onclick="q2function()">Check Answer </button>
+
+    <script>
+      function q2function() {
+        var q2dots = document.getElementById("q2dots");
+        var q2moreText = document.getElementById("q2more");
+        var q2btnText = document.getElementById("q2mybtn");
+
+        if (q2dots.style.display === "none") {
+          q2dots.style.display = "inline";
+          q2btnText.innerHTML = "Check Answer";
+          q2moreText.style.display = "none";
+        }
+        else {
+          q2dots.style.display = "none";
+          q2btnText.innerHTML = "Hide Answer";
+          q2moreText.style.display = "inline";
+        }
+      }
+    </script>
+
+
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.3 CMy friend ....... 23 years old next Saturday.
+
+    </p>
+    <ul class="answers">
+
+      <label> A)was </label> <br>
+      <label> B) will have </label> <br>
+      <label> C) will be </label> <br>
+      <label> D) is</label> <br>
+
+    </ul>
+
+    <style>
+      #q3more {
+        display: none;
+      }
+    </style>
+
+    <span id="q3dots"></span>
+    <span id="q3more">
+      ANSWER= (C)  will be <br>
+
+    </span>
+    <br>
+
+    <button id="q3mybtn" onclick="q3function()">Check Answer </button>
+
+    <script>
+      function q3function() {
+        var q2dots = document.getElementById("q3dots");
+        var q2moreText = document.getElementById("q3more");
+        var q2btnText = document.getElementById("q3mybtn");
+
+        if (q2dots.style.display === "none") {
+          q2dots.style.display = "inline";
+          q2btnText.innerHTML = "Check Answer";
+          q2moreText.style.display = "none";
+        }
+        else {
+          q2dots.style.display = "none";
+          q2btnText.innerHTML = "Hide Answer";
+          q2moreText.style.display = "inline";
+        }
+      }
+    </script>
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.4 Are you attending ____guest today?
+
+    </p>
+    <ul class="answers">
+
+      <label> A) an </label> <br>
+      <label> B) the </label> <br>
+      <label> C) no article  </label> <br>
+      <label> D) a </label> <br>
+
+    </ul>
+
+    <style>
+      #q4more {
+        display: none;
+      }
+    </style>
+
+    <span id="q4dots"></span>
+    <span id="q4more">
+      ANSWER= (B)the <br>
+
+    </span>
+    <br>
+
+    <button id="q4mybtn" onclick="q4function()">Check Answer </button>
+
+    <script>
+      function q4function() {
+        var q4dots = document.getElementById("q4dots");
+        var q4moreText = document.getElementById("q4more");
+        var q4btnText = document.getElementById("q4mybtn");
+
+        if (q4dots.style.display === "none") {
+          q4dots.style.display = "inline";
+          q4btnText.innerHTML = "Check Answer";
+          q4moreText.style.display = "none";
+        }
+        else {
+          q4dots.style.display = "none";
+          q4btnText.innerHTML = "Hide Answer";
+          q4moreText.style.display = "inline";
+        }
+      }
+    </script>
+
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.5 The children are laughing ……. Cartoons.
+
+    </p>
+    <ul class="answers">
+
+      <label> A)by </label> <br>
+      <label> B) at </label> <br>
+      <label> C) in </label> <br>
+      <label> D) on</label> <br>
+
+    </ul>
+
+    <style>
+      #q5more {
+        display: none;
+      }
+    </style>
+
+    <span id="q5dots"></span>
+    <span id="q5more">
+      ANSWER= (B)at<bsendsr>
+
+    </span>
+    <br>
+
+    <button id="q5mybtn" onclick="q5function()">Check Answer </button>
+
+    <script>
+      function q5function() {
+        var q2dots = document.getElementById("q5dots");
+        var q2moreText = document.getElementById("q5more");
+        var q2btnText = document.getElementById("q5mybtn");
+
+        if (q2dots.style.display === "none") {
+          q2dots.style.display = "inline";
+          q2btnText.innerHTML = "Check Answer";
+          q2moreText.style.display = "none";
+        }
+        else {
+          q2dots.style.display = "none";
+          q2btnText.innerHTML = "Hide Answer";
+          q2moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <p>&nbsp;</p>
+    <p class="question"> Q.6 He hasn’t changed our mind,………….
+
+    </p>
+    <ul class="answers">
+
+      <label> A)he hasn’t? </label> <br>
+      <label> B) has he? </label> <br>
+      <label> C) he has? </label> <br>
+      <label> D) can’t he? </label> <br>
+
+    </ul>
+
+    <style>
+      #q6more {
+        display: none;
+      }
+    </style>
+
+    <span id="q6dots"></span>
+    <span id="q6more">
+      ANSWER= (B) has he?<br>
+
+    </span>
+    <br>
+
+    <button id="q6mybtn" onclick="q6function()">Check Answer </button>
+
+    <script>
+      function q6function() {
+        var q2dots = document.getElementById("q6dots");
+        var q2moreText = document.getElementById("q6more");
+        var q2btnText = document.getElementById("q6mybtn");
+
+        if (q2dots.style.display === "none") {
+          q2dots.style.display = "inline";
+          q2btnText.innerHTML = "Check Answer";
+          q2moreText.style.display = "none";
+        }
+        else {
+          q2dots.style.display = "none";
+          q2btnText.innerHTML = "Hide Answer";
+          q2moreText.style.display = "inline";
+        }
+      }
+    </script>
+
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.7 Teacher says that he ………..our behavior.
+
+    </p>
+    <ul class="answers">
+
+      <label> A) observed </label> <br>
+      <label> B) observing </label> <br>
+      <label> C) observe </label> <br>
+      <label> D) observes </label> <br>
+
+    </ul>
+
+    <style>
+      #v1more {
+        display: none;
+      }
+    </style>
+
+    <span id="v1dots"></span>
+    <span id="v1more">
+      ANSWER= D) observes <br>
+
+    </span>
+    <br>
+
+    <button id="v1mybtn" onclick="v1function()">Check Answer </button>
+
+    <script>
+      function v1function() {
+        var v1dots = document.getElementById("v1dots");
+        var v1moreText = document.getElementById("v1more");
+        var v1btnText = document.getElementById("v1mybtn");
+
+        if (v1dots.style.display === "none") {
+          v1dots.style.display = "inline";
+          v1btnText.innerHTML = "Check Answer";
+          v1moreText.style.display = "none";
+        }
+        else {
+          v1dots.style.display = "none";
+          v1btnText.innerHTML = "Hide Answer";
+          v1moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.8 John Keats died……….. Tuberculosis
+
+    </p>
+    <ul class="answers">
+
+      <label> A) because </label> <br>
+      <label> B) of </label> <br>
+      <label> C) in </label> <br>
+      <label> D) on </label> <br>
+
+    </ul>
+
+    <style>
+      #v2more {
+        display: none;
+      }
+    </style>
+
+    <span id="v2dots"></span>
+    <span id="v2more">
+      ANSWER= B )of <br>
+
+    </span>
+    <br>
+
+    <button id="v2mybtn" onclick="v2function()">Check Answer </button>
+
+    <script>
+      function v2function() {
+        var v2dots = document.getElementById("v2dots");
+        var v2moreText = document.getElementById("v2more");
+        var v2btnText = document.getElementById("v2mybtn");
+
+        if (v2dots.style.display === "none") {
+          v2dots.style.display = "inline";
+          v2btnText.innerHTML = "Check Answer";
+          v2moreText.style.display = "none";
+        }
+        else {
+          v2dots.style.display = "none";
+          v2btnText.innerHTML = "Hide Answer";
+          v2moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.9 Identify the correct sentence.
+    </p>
+    <ul class="answers">
+
+      <label> A) Who has studied the ancient civilization. </label> <br>
+      <label> B) Who has study the ancient civilization? </label> <br>
+      <label> C) Who has studied the ancient civilization? </label> <br>
+      <label> D) Who has studied the ancient civilization!</label> <br>
+
+    </ul>
+
+    <style>
+      #v3more {
+        display: none;
+      }
+    </style>
+
+    <span id="v3dots"></span>
+    <span id="v3more">
+      ANSWER= C)Who has studied the ancient civilization?
+      <br>
+
+    </span>
+    <br>
+
+    <button id="v3mybtn" onclick="v3function()">Check Answer </button>
+
+    <script>
+      function v3function() {
+        var v3dots = document.getElementById("v3dots");
+        var v3moreText = document.getElementById("v3more");
+        var v3btnText = document.getElementById("v3mybtn");
+
+        if (v3dots.style.display === "none") {
+          v3dots.style.display = "inline";
+          v3btnText.innerHTML = "Check Answer";
+          v3moreText.style.display = "none";
+        }
+        else {
+          v3dots.style.display = "none";
+          v3btnText.innerHTML = "Hide Answer";
+          v3moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.10 The peon was……… to inform students by the principal.
+    </p>
+    <ul class="answers">
+
+      <label> A) sends </label> <br>
+      <label> B) sent </label> <br>
+      <label> C) sending </label> <br>
+      <label> D) send </label> <br>
+
+    </ul>
+
+    <style>
+      #v4more {
+        display: none;
+      }
+    </style>
+
+    <span id="v4dots"></span>
+    <span id="v4more">
+      ANSWER= B)sent <br>
+
+    </span>
+    <br>
+
+    <button id="v4mybtn" onclick="v4function()">Check Answer </button>
+
+    <script>
+      function v4function() {
+        var v4dots = document.getElementById("v4dots");
+        var v4moreText = document.getElementById("v4more");
+        var v4btnText = document.getElementById("v4mybtn");
+
+        if (v4dots.style.display === "none") {
+          v4dots.style.display = "inline";
+          v4btnText.innerHTML = "Check Answer";
+          v4moreText.style.display = "none";
+        }
+        else {
+          v4dots.style.display = "none";
+          v4btnText.innerHTML = "Hide Answer";
+          v4moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.11 The train will reach ……….. 10 a.m.
+
+    </p>
+    <ul class="answers">
+
+      <label> A) to</label> <br>
+      <label> B) on </label> <br>
+      <label> C) by </label> <br>
+      <label> D) near </label> <br>
+
+    </ul>
+
+    <style>
+      #v5more {
+        display: none;
+      }
+    </style>
+
+    <span id="v5dots"></span>
+    <span id="v5more">
+      ANSWER= C) by <br>
+
+    </span>
+    <br>
+
+    <button id="v5mybtn" onclick="v5function()">Check Answer </button>
+
+    <script>
+      function v5function() {
+        var v5dots = document.getElementById("v5dots");
+        var v5moreText = document.getElementById("v5more");
+        var v5btnText = document.getElementById("v5mybtn");
+
+        if (v5dots.style.display === "none") {
+          v5dots.style.display = "inline";
+          v5btnText.innerHTML = "Check Answer";
+          v5moreText.style.display = "none";
+        }
+        else {
+          v5dots.style.display = "none";
+          v5btnText.innerHTML = "Hide Answer";
+          v5moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.12-Identify sentence with simple present tense
+
+    </p>
+    <ul class="answers">
+
+      <label> A) They played a trick. <br>
+        <label> B) We were remembered. </label> <br>
+        <label> C) She is happy. </label> <br>
+        <label> D)I am trying hard.</label> <br>
+
+    </ul>
+
+    <style>
+      #v6more {
+        display: none;
+      }
+    </style>
+
+    <span id="v6dots"></span>
+    <span id="v6more">
+      ANSWER= C) She is happy. <br>
+
+    </span>
+    <br>
+
+    <button id="v6mybtn" onclick="v6function()">Check Answer </button>
+
+    <script>
+      function v6function() {
+        var v6dots = document.getElementById("v6dots");
+        var v6moreText = document.getElementById("v6more");
+        var v6btnText = document.getElementById("v6mybtn");
+
+        if (v6dots.style.display === "none") {
+          v6dots.style.display = "inline";
+          v6btnText.innerHTML = "Check Answer";
+          v6moreText.style.display = "none";
+        }
+        else {
+          v6dots.style.display = "none";
+          v6btnText.innerHTML = "Hide Answer";
+          v6moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.14  find the correct synonym to the word, rustic -
+
+    </p>
+    <ul class="answers">
+
+      <label> A) Rich <br>
+        <label> B) Happy </label> <br>
+        <label> C) Liar </label> <br>
+        <label> D) Rural </label> <br>
+
+    </ul>
+
+    <style>
+      #v8more {
+        display: none;
+      }
+    </style>
+
+    <span id="v8dots"></span>
+    <span id="v8more">
+      ANSWER= D) Rural<br>
+
+    </span>
+    <br>
+
+    <button id="v8mybtn" onclick="v8function()">Check Answer </button>
+
+    <script>
+      function v8function() {
+        var v8dots = document.getElementById("v8dots");
+        var v8moreText = document.getElementById("v8more");
+        var v8btnText = document.getElementById("v8mybtn");
+
+        if (v8dots.style.display === "none") {
+          v8dots.style.display = "inline";
+          v8btnText.innerHTML = "Check Answer";
+          v8moreText.style.display = "none";
+        }
+        else {
+          v8dots.style.display = "none";
+          v8btnText.innerHTML = "Hide Answer";
+          v8moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.15 find the correct synonym to the word, redeem –
+    </p>
+    <ul class="answers">
+
+      <label> A)treat<br>
+        <label> B)fear </label> <br>
+        <label> C)recover </label> <br>
+        <label> D) repeat</label> <br>
+
+    </ul>
+
+    <style>
+      #v9more {
+        display: none;
+      }
+    </style>
+
+    <span id="v9dots"></span>
+    <span id="v9more">
+      ANSWER= A) Day dreaming <br>
+
+    </span>
+    <br>
+
+    <button id="v9mybtn" onclick="v9function()">Check Answer </button>
+
+    <script>
+      function v9function() {
+        var v9dots = document.getElementById("v9dots");
+        var v9moreText = document.getElementById("v9more");
+        var v9btnText = document.getElementById("v9mybtn");
+
+        if (v9dots.style.display === "none") {
+          v9dots.style.display = "inline";
+          v9btnText.innerHTML = "Check Answer";
+          v9moreText.style.display = "none";
+        }
+        else {
+          v9dots.style.display = "none";
+          v9btnText.innerHTML = "Hide Answer";
+          v9moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.16 -find the correct synonym to the word, monotonous –
+    </p>
+    <ul class="answers">
+
+      <label> A) tedious <br>
+        <label> B) careless </label> <br>
+        <label> C) extraordinary </label> <br>
+        <label> D) modest</label> <br>
+
+    </ul>
+
+    <style>
+      #v11more {
+        display: none;
+      }
+    </style>
+
+    <span id="v11dots"></span>
+    <span id="v11more">
+      ANSWER= A)tedious <br>
+
+    </span>
+    <br>
+
+    <button id="v11mybtn" onclick="v11function()">Check Answer </button>
+
+    <script>
+      function v11function() {
+        var v11dots = document.getElementById("v11dots");
+        var v11moreText = document.getElementById("v11more");
+        var v11btnText = document.getElementById("v11mybtn");
+
+        if (v11dots.style.display === "none") {
+          v11dots.style.display = "inline";
+          v11btnText.innerHTML = "Check Answer";
+          v11moreText.style.display = "none";
+        }
+        else {
+          v11dots.style.display = "none";
+          v11btnText.innerHTML = "Hide Answer";
+          v11moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.17 Find the correct antonyms to the word, trivial –
+    </p>
+    </p>
+    <ul class="answers">
+
+      <label> A)significant <br>
+        <label> B) triple </label> <br>
+        <label> C) common</label> <br>
+        <label> D) pleasant</label> <br>
+
+    </ul>
+
+    <style>
+      #v10more {
+        display: none;
+      }
+    </style>
+
+    <span id="v10dots"></span>
+    <span id="v10more">
+      ANSWER= A) significant <br>
+
+    </span>
+    <br>
+
+    <button id="v10mybtn" onclick="v10function()">Check Answer </button>
+
+    <script>
+      function v10function() {
+        var v10dots = document.getElementById("v10dots");
+        var v10moreText = document.getElementById("v10more");
+        var v10btnText = document.getElementById("v10mybtn");
+
+        if (v10dots.style.display === "none") {
+          v10dots.style.display = "inline";
+          v10btnText.innerHTML = "Check Answer";
+          v10moreText.style.display = "none";
+        }
+        else {
+          v10dots.style.display = "none";
+          v10btnText.innerHTML = "Hide Answer";
+          v10moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.18 Find the correct antonyms to the word, tranquil –
+    </p>
+    <ul class="answers">
+
+      <label> A) Violent <lable></lable><br>
+        <label> B) Mutual </label> <br>
+        <label> C) Timid</label> <br>
+        <label> D) Lavish</label> <br>
+
+    </ul>
+
+    <style>
+      #v12more {
+        display: none;
+      }
+    </style>
+
+    <span id="v12dots"></span>
+    <span id="v12more">
+      ANSWER= A) Violent <br>
+
+    </span>
+    <br>
+
+    <button id="v12mybtn" onclick="v12function()">Check Answer </button>
+
+    <script>
+      function v12function() {
+        var v12dots = document.getElementById("v12dots");
+        var v12moreText = document.getElementById("v12more");
+        var v12btnText = document.getElementById("v12mybtn");
+
+        if (v12dots.style.display === "none") {
+          v12dots.style.display = "inline";
+          v12btnText.innerHTML = "Check Answer";
+          v12moreText.style.display = "none";
+        }
+        else {
+          v12dots.style.display = "none";
+          v12btnText.innerHTML = "Hide Answer";
+          v12moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.19 - Doctor advised to visit on Monday. (identify the correct direct speech)</p>
+    <ul class="answers">
+
+      <label> A) Doctor advised, “that visit on Monday.” <br>
+        <label> B)Doctor said, “Visit on Monday.”</label> <br>
+        <label> C) Doctor said, “visit. “</label> <br>
+        <label> D)Doctor said visit on Monday.</label> <br>
+
+    </ul>
+
+    <style>
+      #v13more {
+        display: none;
+      }
+    </style>
+
+    <span id="v13dots"></span>
+    <span id="v13more">
+      ANSWER= B)Doctor said, “Visit on Monday.” <br>
+
+    </span>
+    <br>
+
+    <button id="v13mybtn" onclick="v13function()">Check Answer </button>
+
+    <script>
+      function v13function() {
+        var v13dots = document.getElementById("v13dots");
+        var v13moreText = document.getElementById("v13more");
+        var v13btnText = document.getElementById("v13mybtn");
+
+        if (v13dots.style.display === "none") {
+          v13dots.style.display = "inline";
+          v13btnText.innerHTML = "Check Answer";
+          v13moreText.style.display = "none";
+        }
+        else {
+          v13dots.style.display = "none";
+          v13btnText.innerHTML = "Hide Answer";
+          v13moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.20 -He asked, “Is it danger to stand here?” (identify the correct indirect speech)
+    </p>
+    <ul class="answers">
+
+      <label> A) He asked it is danger to stand here? <br>
+        <label> B) He asked if it was danger to stand there. </label> <br>
+        <label> C) He asked why it was danger to stand there.</label> <br>
+        <label> D) He advised not to stand there. </label> <br>
+
+    </ul>
+
+    <style>
+      #v14more {
+        display: none;
+      }
+    </style>
+
+    <span id="v14dots"></span>
+    <span id="v14more">
+      ANSWER= B)  He asked if it was danger to stand there. <br>
+
+    </span>
+    <br>
+
+    <button id="v14mybtn" onclick="v14function()">Check Answer </button>
+
+    <script>
+      function v14function() {
+        var v14dots = document.getElementById("v14dots");
+        var v14moreText = document.getElementById("v14more");
+        var v14btnText = document.getElementById("v14mybtn");
+
+        if (v14dots.style.display === "none") {
+          v14dots.style.display = "inline";
+          v14btnText.innerHTML = "Check Answer";
+          v14moreText.style.display = "none";
+        }
+        else {
+          v14dots.style.display = "none";
+          v14btnText.innerHTML = "Hide Answer";
+          v14moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.21 We like to walk regular. (Change the voice)
+    </p>
+    <ul class="answers">
+
+      <label> A) Regular walk is liked by me. <br>
+        <label> B) Walking is regularly liked by me.</label> <br>
+        <label> C) I am liked by walk regularly. </label> <br>
+        <label> D) NO change.</label> <br>
+
+    </ul>
+
+    <style>
+      #v15more {
+        display: none;
+      }
+    </style>
+
+    <span id="v15dots"></span>
+    <span id="v15more">
+      ANSWER= D) NO change <br>
+
+    </span>
+    <br>
+
+    <button id="v15mybtn" onclick="v15function()">Check Answer </button>
+
+    <script>
+      function v15function() {
+        var v15dots = document.getElementById("v15dots");
+        var v15moreText = document.getElementById("v15more");
+        var v15btnText = document.getElementById("v15mybtn");
+
+        if (v15dots.style.display === "none") {
+          v15dots.style.display = "inline";
+          v15btnText.innerHTML = "Check Answer";
+          v15moreText.style.display = "none";
+        }
+        else {
+          v15dots.style.display = "none";
+          v15btnText.innerHTML = "Hide Answer";
+          v15moreText.style.display = "inline";
+        }
+      }
+    </script>
+    <hr />
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <p>&nbsp;</p>
+    <p class="question"> Q.22 -Identify the correct sentence.
+
+
+      <label> A) Life not is a bed of roses. <br>
+        <label> B) Life is a bed of not roses. </label> <br>
+        <label> C) Life is not a bed of roses.</label> <br>
+        <label> D) Not life is a bed of roses.</label> <br>
+
+        </ul>
+
+        <style>
+          #v16more {
+            display: none;
+          }
+        </style>
+
+        <span id="v16dots"></span>
+        <span id="v16more">
+          ANSWER= C) Life is not a bed of roses. <br>
+
+        </span>
+        <br>
+
+        <button id="v16mybtn" onclick="v16function()">Check Answer </button>
+
+        <script>
+          function v16function() {
+            var v16dots = document.getElementById("v16dots");
+            var v16moreText = document.getElementById("v16more");
+            var v16btnText = document.getElementById("v16mybtn");
+
+            if (v16dots.style.display === "none") {
+              v16dots.style.display = "inline";
+              v16btnText.innerHTML = "Check Answer";
+              v16moreText.style.display = "none";
+            }
+            else {
+              v16dots.style.display = "none";
+              v16btnText.innerHTML = "Hide Answer";
+              v16moreText.style.display = "inline";
+            }
+          }
+        </script>
+        <hr />
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        <p>&nbsp;</p>
+        <p class="question"> Q.23 Identify the correct sentence.
+        </p>
+        <ul class="answers">
+
+          <label> A) Mathew does not repeats mistakes. <br>
+            <label> B) Mathew does not repeat mistakes. </label> <br>
+            <label> C)Mathew repeats not mistakes.</label> <br>
+            <label> D) Mathew not does repeat question.</label> <br>
+
+        </ul>
+
+        <style>
+          #v17more {
+            display: none;
+          }
+        </style>
+
+        <span id="v17dots"></span>
+        <span id="v17more">
+          ANSWER= B) Mathew does not repeat mistakes. <br>
+
+        </span>
+        <br>
+
+        <button id="v17mybtn" onclick="v17function()">Check Answer </button>
+
+        <script>
+          function v17function() {
+            var v17dots = document.getElementById("v17dots");
+            var v17moreText = document.getElementById("v17more");
+            var v17btnText = document.getElementById("v17mybtn");
+
+            if (v17dots.style.display === "none") {
+              v17dots.style.display = "inline";
+              v17btnText.innerHTML = "Check Answer";
+              v17moreText.style.display = "none";
+            }
+            else {
+              v17dots.style.display = "none";
+              v17btnText.innerHTML = "Hide Answer";
+              v17moreText.style.display = "inline";
+            }
+          }
+        </script>
+        <hr />
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        <p>&nbsp;</p>
+        <p class="question"> Q.24 If you had practised at home, you ………. perform in event.
+        </p>
+        <ul class="answers">
+
+          <label> A) can <br>
+            <label> B) may </label> <br>
+            <label> C) will</label> <br>
+            <label> D) could</label> <br>
+
+        </ul>
+
+        <style>
+          #v18more {
+            display: none;
+          }
+        </style>
+
+        <span id="v18dots"></span>
+        <span id="v18more">
+          ANSWER= D) could <br>
+          <br>
+
+        </span>
+        <br>
+
+        <button id="v18mybtn" onclick="v18function()">Check Answer </button>
+
+        <script>
+          function v18function() {
+            var v18dots = document.getElementById("v18dots");
+            var v18moreText = document.getElementById("v18more");
+            var v18btnText = document.getElementById("v18mybtn");
+
+            if (v18dots.style.display === "none") {
+              v18dots.style.display = "inline";
+              v18btnText.innerHTML = "Check Answer";
+              v18moreText.style.display = "none";
+            }
+            else {
+              v18dots.style.display = "none";
+              v18btnText.innerHTML = "Hide Answer";
+              v18moreText.style.display = "inline";
+            }
+          }
+        </script>
+        <hr />
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        <p>&nbsp;</p>
+        <p class="question"> Q.25 The branch that was closed has been working ………. 1922.
+        <ul class="answers">
+
+          <label> A) From <br>
+            <label> B) With </label> <br>
+            <label> C) Since</label> <br>
+            <label> D) On</label> <br>
+
+        </ul>
+
+        <style>
+          #v19more {
+            display: none;
+          }
+        </style>
+
+        <span id="v19dots"></span>
+        <span id="v19more">
+          ANSWER= C) Since <br>
+
+        </span>
+        <br>
+
+        <button id="v19mybtn" onclick="v19function()">Check Answer </button>
+
+        <script>
+          function v19function() {
+            var v19dots = document.getElementById("v19dots");
+            var v19moreText = document.getElementById("v19more");
+            var v19btnText = document.getElementById("v19mybtn");
+
+            if (v19dots.style.display === "none") {
+              v19dots.style.display = "inline";
+              v19btnText.innerHTML = "Check Answer";
+              v19moreText.style.display = "none";
+            }
+            else {
+              v19dots.style.display = "none";
+              v19btnText.innerHTML = "Hide Answer";
+              v19moreText.style.display = "inline";
+            }
+          }
+        </script>
+        <hr />
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+        <p>&nbsp;</p>
+        <p class="question"> Q.26 Dimension textis generally placed above the ________line.
+        </p>
+        <ul class="answers">
+
+          <label> A) Dimensions <br>
+            <label> B) Extension </label> <br>
+            <label> C) Center </label> <br>
+            <label> D) Leader</label> <br>
+
+        </ul>
+
+        <style>
+          #v20more {
+            display: none;
+          }
+        </style>
+
+        <span id="v20dots"></span>
+        <span id="v20more">
+          ANSWER= A) Dimension <br>
+
+        </span>
+        <br>
+
+        <button id="v20mybtn" onclick="v20function()">Check Answer </button>
+
+        <script>
+          function v20function() {
+            var v20dots = document.getElementById("v20dots");
+            var v20moreText = document.getElementById("v20more");
+            var v20btnText = document.getElementById("v20mybtn");
+
+            if (v20dots.style.display === "none") {
+              v20dots.style.display = "inline";
+              v20btnText.innerHTML = "Check Answer";
+              v20moreText.style.display = "none";
+            }
+            else {
+              v20dots.style.display = "none";
+              v20btnText.innerHTML = "Hide Answer";
+              v20moreText.style.display = "inline";
+            }
+          }
+        </script>
+        <hr />
+
+        <!----------------------------------------------------------------------------------------------------------------------------->
+
+  </div>
+</body>
+
+</html>

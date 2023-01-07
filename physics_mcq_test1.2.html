@@ -1,0 +1,369 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="notes_containt.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+  {
+    question: "1.In free vibration which remain constant.",
+    answers: {
+      a: 'Amplitude ',
+      b: 'Total energy' ,
+      c: 'Both ',
+      d: 'None of these',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: "2.In which of the following oscillation the amplitude varies with time .",
+    answers: {
+      a: 'Damped oscillator ',
+      b: 'Forced oscillator ',
+      c: 'Undamped oscillator ',
+      d: 'None of these ',
+    },
+    correctAnswer: 'a'
+  },
+ {
+ question: "3.If the damping is smaller than the resonance will be ",
+ answers:{
+ a: 'flatter ',
+ b:'sharper ',
+ c:'None ',
+ d:'Both (a) and (b)',
+},
+ correctAnswer: 'b'
+},
+{
+    question: "4. A wavelenght of 0.60 cm is produced inn air and trravels with a velocity 300 m/s then it is  ",
+    answers: {
+      a: 'Ultrasonic wave ',
+      b: 'Sound wave ' ,
+      c: 'Light wave  ',
+      d: 'Microwave ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "5.Utrasonic waves are used in stirring liquid solution because ",
+    answers: {
+      a: 'They do not cause chemical rreaction  ',
+      b: 'They cause chemical ' ,
+      c: 'They produced perfectly homogenous solution ',
+      d: ' They produce heating ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "6.Which of the following cannot  be polarised",
+    answers: {
+      a: 'Radio-waves ',
+      b: 'Sound Waves ' ,
+      c: 'Transverse ',
+      d: 'x-rays ',
+    },
+    correctAnswer: 'b'
+  },
+  {
+    question: "7.Which of the following can be used to produce ultrasonic wave ",
+    answers: {
+      a: 'Ni-rod ',
+      b: 'Co-rod ' ,
+      c: 'Fe-rod ',
+      d: 'all ',
+    },
+    correctAnswer: 'd'
+  },
+  {
+    question: "8.Ultrasonic waves have frequency range  ",
+    answers: {
+      a: '20Hz - 20KHz',
+      b: '50Hz -100Hz ' ,
+      c: '500Hz -1000Hz ',
+      d: 'All ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "9.Ultrasonic waves travel eith velocity",
+    answers: {
+      a: 'Equal to the velocity of light ',
+      b: 'equal to the velocity ' ,
+      c: 'More than velocity of sound waves ',
+      d: 'None of these ',
+    },
+    correctAnswer: 'b'
+  },
+  {
+    question: "10.The fundamental frequency of quartz crustal plate of thickness √30 mm is ",
+    answers: {
+      a: '5kHz ',
+      b: '50kHz ' ,
+      c: '500kHz ',
+      d: '5MHz ',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: "11.The piezoelectric phenomenon is observed in a ",
+    answers: {
+      a: 'Quartz crystal ',
+      b: 'Nacl crystal ' ,
+      c: 'nickel rod ',
+      d: 'iron rod ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "12.The wavelength of ultrasonic waves in air is in the order of ",
+    answers: {
+      a: '1cm ',
+      b: '5 x 10^-6m ' ,
+      c: '5 x 10^4m ',
+      d: '1 x 10^6m ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "13.	The oscillatory motion is said to be critically damped if --------",
+    answers: {
+      a: 'b2 > ω2 ',
+      b: 'b2 < ω2 ',
+      c: ') b2 = ω2',
+      d: 'None of above',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: "14.If an object moves back and forth repeatedly around a mean position it is called",
+    answers: {
+      a: 'Oscillating ',
+      b: 'revolving ',
+      c: 'rotating ',
+      d: 'motion ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "15.	An ultrasonic source of 0.07 MHz sends down a pulse towards the sea bed, which returns after 0.65 sec. The velocity of sound in sea water is 1700 m / sec.",
+    answers: {
+      a: '552.5 m ',
+      b: '590 m ',
+      c: '490 m',
+      d: '500 m ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "16.SONAR is",
+    answers: {
+      a: 'Sound Navigation and Ranging ',
+      b: 'Sound Navigation and Recording',
+      c: 'Sound Navigation and Reproducing ',
+      d: 'Sound Navigation and Repeating ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "17.	When voltage is applied to crystal surfaces the crystal is distorted, this is called ",
+    answers: {
+      a: 'Piezo electric effect ',
+      b: 'Magnetostriction effect ',
+      c: 'Inverse piezoelectric effect',
+      d: 'None of above ',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: "18.When amplitude of vibration of a particle gradually decreases with time, then oscillations are  ",
+    answers: {
+      a: 'Free oscillations  ',
+      b: 'Damped oscillations ' ,
+      c: 'Forced oscillations ',
+      d: 'All of above ',
+    },
+    correctAnswer: 'b'
+  },
+  {
+    question: "19.	 When pressure ot tension is applied to crystal surfaces then voltage is developed across the  crystal, this  is called ",
+    answers: {
+      a: 'Piezo electric effect  ',
+      b: 'Magnetostriction effect ',
+      c: 'Inverse piezoelectric effect',
+      d: 'None of above ',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "20.In a magnetostriction effect material of rod placed in a steady magnetic field is",
+    answers: {
+      a: 'Ferrimagnetic',
+      b: 'Ferromagnetic',
+      c: 'Paramagnetic',
+      d: 'diamagnetic ',
+    },
+    correctAnswer: 'b'
+  },
+  
+
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

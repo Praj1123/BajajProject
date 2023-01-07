@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="em_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. In a velocity time curve the slope represents",
+    answers:{
+     a:'acceleration',
+     b:'displacements',
+     c:'velocity',
+     d:'none of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "2. The angular velocity (in rad/s) of a body rotating at N r.p.m. is.",
+    answers:{
+     a:'varying',
+     b:' minimum',
+     c:'maximum',
+     d:'zero',
+    },
+   correctAnswer: 'd'
+  },
+ {
+   question: "3.At the instantaneous centre, the velocity of the moving lamina at any instant is",
+   answers:{
+     a:' ω.r',
+     b:' ω/r',
+     c:'ωs2.r',
+     d:'ωs2/r',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.When a particle moves along a straight path, then the particle has ",
+   answers:{
+     a:'tangential acceleration only',
+     b:'centripetal acceleration only',
+     c:'both tangential and centripetal acceleration',
+     d:'none of the mentioned',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.Friction is a kind of",
+   answers:{
+     a:' active force',
+     b:'body force ',
+     c:'reactive force',
+     d:'none of the above',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "6.When the motion of a body is confined to only one plane, the motion is said to be",
+    answers:{
+     a:'plane motion',
+     b:'rectilinear motion',
+     c:'curvilinear Motion',
+     d:'none of the mentioned',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "7.In a velocity time curve the slope represents.",
+   answers:{
+     a:' acceleration',
+     b:'displacement',
+     c:'velocity',
+     d:'none of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.At the instantaneous centre, the velocity of the moving lamina at any instant is ",
+    answers:{
+     a:'varying',
+     b:'minimum',
+     c:'maximum',
+     d:'zero',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "9.A truss consisting of coplanar members is called _____.",
+    answers:{
+     a:'plane truss',
+     b:'space truss',
+     c:'ideal truss',
+     d:'rigid truss',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10.Which of the following is correct.",
+   answers:{
+     a:'To know the direction of the unknown force we take the assumption of it',
+     b:'The direction of the unknown force is known to us already',
+     c:'The direction of the unknown can’t be determined',
+     d:'The direction of the unknown is of no use, it is not founded',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "11. The joint in the trusses are generally formed by welding the materials at the ends of the trusses on a common plate. Which gives strength to the design. What is that plate called.",
+   answers:{
+     a:'Gusset Plate',
+     b:'Ignified plate',
+     c:'Non-metallic plate',
+     d:'Gymnite plate',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.Trusses lie in a single plane. And the calculations used to solve the forces are from vector math ",
+   answers:{
+     a:'The first part of the statement is false and other part is true',
+     b:'The first part of the statement is false and other part is false too',
+     c:'The first part of the statement is true and other part is false',
+     d:'The first part of the statement is true and other part is true too',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13.The transmission of the load on a certain type of a structure follow as from stringers to floor beams and then joints. Determine the structure",
+   answers:{
+     a:'Truss',
+     b:'Beam',
+     c:'Pillar',
+     d:'Bridge',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "14.There are no rules for the designing of the truss. But there are rules designing the bridges",
+   answers:{
+     a:'The first part of the statement is false and other part is true',
+     b:'The first part of the statement is false and other part is false too',
+     c:'The first part of the statement is true and other part is false',
+     d:'The first part of the statement is true and other part is true too',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "15 A truss is facing a two force member and both of them are in the opposite directions. And the truss is in equilibrium. And both of them are getting away from each other.The forces are called? ",
+   answers:{
+     a:'Compressive forces',
+     b:'Tensile Forces',
+     c:'Parallel and collinear forces with same direction of heading',
+     d:'The rotational forces',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "16.A truss is facing a two force member and both of them are in the opposite directions. And the truss is in equilibrium. And both of them are coming towards each other. The forces are called __________",
+   answers:{
+     a:'Compressive forces',
+     b:'Tensile Forces',
+     c:'Parallel and collinear forces with same direction of heading',
+     d:'The rotational forces',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17. Truss cannot be acted upon three force members. Because the truss in a single plane.",
+    answers:{
+     a: ' The first part of the statement is false and other part is true',
+     b:'The first part of the statement is false and other part is false too',
+     c:' The first part of the statement is true and other part is false',
+     d:'The first part of the statement is true and other part is true too',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.If the line of action of all the forces in a system  passes through a single point, it is called",
+   answers:{
+     a:'coplanar force system',
+     b:'concurrent force system',
+     c:'collinear force system',
+     d:'non coplanar',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.__________ is a structure made of slender members which are joined together at their end points ",
+   answers:{
+     a:'Truss',
+     b:'Beam',
+     c:'Pillar',
+     d:'support',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20 A beam with more than one supports is called _____ ",
+    answers:{
+     a:'cantilever beam',
+     b:'simple beam',
+     c:'complex beam',
+     d:'continuous beam',
+    },
+   correctAnswer: 'b'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

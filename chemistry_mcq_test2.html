@@ -1,0 +1,366 @@
+
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="chemistry_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+     question: "1.What is the formulation for Gibbs Phase Rule? ",
+     answers:{
+     a: ' P - F = C + 2',
+     b:'P + F = C + 1',
+     c:' P + F = C + 2',
+     d:'P + F = C - 1',
+    },
+   correctAnswer: 'c'
+  },{
+     question: "2.Does Gibb's Phase Rule provides the theoretical foundation, based in thermodynamics? ",
+     answers:{
+     a: 'Yes',
+     b:'No',
+     c:'Can be yes or no',
+     d:' Can not say',
+    },
+   correctAnswer: 'a'
+  },
+ {
+     question: "3.In Gibbs phase rule, P stands for? ",
+     answers:{
+     a: 'P is the minimum number of chemical components required to constitute all the phases in the system',
+     b:'P is the number of degrees of freedom in the system',
+     c:'P is the number of phases in the system',
+     d:'None of the above',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "4.What is Gibbs phase rule for metallurgical system? ",
+     answers:{
+     a: 'F = C – 1 – P',
+     b:' P + F = C – 2',
+     c:' P + F = C + 2',
+     d:'F = C + 1 – P',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "5.The degree of freedom at a triple point in the unary diagram for water is ________ ",
+     answers:{
+     a: '3',
+     b:'2',
+     c:'1',
+     d:'0',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "6.What is degree of freedom when two phases co – exist? ",
+     answers:{
+     a: '0',
+     b:'1',
+     c:'2',
+     d:'3',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "7.For single component system when degree of freedom is 1(one) then number of phases _______ ",
+     answers:{
+     a: '0',
+     b:'2',
+     c:'1',
+     d:'3',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "8.What is meant by triple point ? ",
+     answers:{
+     a: 'Three phases are in equilibrium',
+     b:'Three components are in equilibrium',
+     c:'Degree of freedom is three',
+     d:'Non of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "9.In the general phase diagram of Ferric chloride – water system, what causes reduction in water content in ferric chloride at each step? ",
+     answers:{
+     a: 'Reduction in moisture content',
+     b:'Reduction in concentration',
+     c:'Reduction in equilibrium shift',
+     d:' Increase in temperature',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "10.  The driving force of the diffusion process in phase diagram is __________________",
+     answers:{
+     a: 'The slope in Gibbs free energy',
+     b:'The slope in solubility',
+     c:'The slope in temperature',
+     d:'The slope in pressure',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "11.What are the limits of phase rule? ",
+     answers:{
+     a: 'Cannot determine the presence of more the one phase in a system',
+     b:'Cannot determine solubility',
+     c:'Cannot determine composition',
+     d:'Can determine temperature',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "12. What is the efficiency of phase rule over Lever rule?",
+     answers:{
+     a: '25%',
+     b:' 50%',
+     c:'75%',
+     d:' 85%',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "13. Liquid phase exists for all compositions above _________ region. ",
+     answers:{
+     a: 'Eutectic region',
+     b:'Equilibrium region',
+     c:'Isometric region',
+     d:'Sublimation region',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "14. Select a non-homogeneous system from the following.",
+     answers:{
+     a: 'Salt solution',
+     b:'Sugar solution',
+     c:'Glucose in water',
+     d:'Saturated solution of NaCl',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "15. Select the odd statement with respect to a phase reaction.",
+     answers:{
+     a: 'Saturated solution',
+     b:'Equilibrium solution',
+     c:'Concentric solution',
+     d:' Amorphous solution',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "16. Calculate the eutectic concentration given the following data. Pressure= 1atm Temperature: 1oC ",
+     answers:{
+     a: '0',
+     b:'2',
+     c:'1',
+     d:'3',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "17. Under what condition, will we get a stable phase diagram?",
+     answers:{
+     a: ' Solid + Liquid',
+     b:'Solid + Vapor',
+     c:' Liquid + vapor',
+     d:'Liquid + Solid',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "18.What Does ‘P’ Stand for in the Phase Rule? ",
+     answers:{
+     a: ' Pressure',
+     b:' Pascal',
+     c:' Momentum',
+     d:'Phase',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "19.Representation of the different phase of a compound on a two or three dimensional graph is ",
+     answers:{
+     a: 'Block diagram',
+     b:'Equilibrium diagram',
+     c:'Phase diagram',
+     d:'None of the mentioned',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "20.How is the distribution among two or more phases at equilibrium determined by ",
+     answers:{
+     a: 'Application of entropy',
+     b:'Application of Newton’s laws of motion',
+     c:'Application of Gibbs free energy',
+     d:'Application of force',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+// for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

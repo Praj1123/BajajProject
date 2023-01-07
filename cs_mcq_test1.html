@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="cs_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. ________ means communication without words. ",
+    answers:{
+     a:'Object communication ',
+     b:'Written communication',
+     c:'Oral communication',
+     d:'Non- verbal communication ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "2. The person who transmits the message is called___________",
+    answers:{
+     a:'channel ',
+     b:' sender ',
+     c:'receiver ',
+     d:'response ',
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.___________ aims at making people work together for the common good of the organization  ",
+   answers:{
+     a:' communication ',
+     b:'conversation ',
+     c:'combination ',
+     d:'connection ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.at each stage in the process of communication, there is a possibility of interference which may hinder the process. Such interference is known as____________",
+   answers:{
+     a:'sender ',
+     b:'receiver ',
+     c:'barrier ',
+     d:'none of them',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "5.____________ describes all forms of human communication that are not verbal",
+   answers:{
+     a:'prosody ',
+     b:'vocalics ',
+     c:'haptics ',
+     d:'para language',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "6.normally communication is _____, wherein the information or message is transferred from one person to other",
+    answers:{
+     a:' impersonal ',
+     b:'interpersonal ',
+     c:'personal ',
+     d:'important ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "7.A __________ connects the sender to the receiver.",
+   answers:{
+     a:' Channel ',
+     b:'Noise ',
+     c:'Communication ',
+     d:'feedback ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.The energy possessed by a body by the virtue of its position is called ______ ",
+    answers:{
+     a:'disturbance ',
+     b:'discrimination ',
+     c:'disorder ',
+     d:'distortion ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "9. Most of us use ________ and _______ in addition to words, when we speak. .",
+    answers:{
+     a:'words and gestures',
+     b:'gestures and body language',
+     c:'body language and posture',
+     d:'posture and eye gazing',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10.__________ refers to pitch , loudness, duration, intonation and ,tempo..",
+   answers:{
+     a:'touches ',
+     b:'prosody ',
+     c:'gestures ',
+     d:' haptics ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11.In___________ main intention is to seek certain information which will be appreciated.",
+   answers:{
+     a:'empathetic ',
+     b:'comprehension ',
+     c:'appreciative ',
+     d:'therapeutic ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "12.Dialogic listening is also known as __________________.  ",
+   answers:{
+     a:'therapeutic ',
+     b:'appreciative ',
+     c:'relational ',
+     d:'evaluative ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.________ means looking quickly over a textbook to get a general superficial idea of the content. ",
+   answers:{
+     a:'scanning ',
+     b:'extensive reading',
+     c:'skimming ',
+     d:'intensive ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "14.____________ reading is ideal and helps comprehension ",
+   answers:{
+     a:'extensive ',
+     b:'loud ',
+     c:'intensive ',
+     d:'silent ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15 The second step in SQ3R of reading is _________.",
+   answers:{
+     a:'survey    .',
+     b:'question ',
+     c:'read     .',
+     d:'review .',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.While making a slide the number of words should be limited to a maximum of ________________ per slide. ",
+   answers:{
+     a:'  seven ',
+     b:'nine ',
+     c:'eight ',
+     d:' ten ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "17. _______ are the abbreviations which are made up by writing the first letters of the words in a name or phrases. .",
+    answers:{
+     a: ' field abbreviations',
+     b:'personal abbreviations',
+     c:' acronyms ',
+     d:'none of them ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Communication that takes place between the members of an organization – within themselves is ________. ",
+   answers:{
+     a:'external ',
+     b:'formal ',
+     c:'informal ',
+     d:'internal ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "19.Informal meetings mark the ________ of the problem. ",
+   answers:{
+     a:'immediately ',
+     b:'immediacy ',
+     c:'importance ',
+     d:'improvement ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "20 ________ is sent to specific group of people whereas ________ may be meant for general public",
+    answers:{
+     a:'notice, memo',
+     b:'memo, circular',
+     c:'notice, circular',
+     d:'circular, notice',
+    },
+   correctAnswer: 'd'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

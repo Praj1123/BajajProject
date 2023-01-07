@@ -1,0 +1,363 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="em_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. The main condition for the rigid body is that the distance between various particles of the body does change.",
+    answers:{
+     a:'True',
+     b:'False',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "2. What does Newton’s third law states?",
+    answers:{
+     a:'The rate of change of momentum is equal to the force applied',
+     b:'For every reaction, there is an opposite reaction',
+     c:'The body tends to be rotated if the force is applied tangentially',
+     d:'The body is rest until a force is applied',
+    },
+   correctAnswer: ''
+  },
+ {
+   question: "3.For equilibrium, the net moment acting on the body by various forces is zero ",
+   answers:{
+     a:'True',
+     b:'False',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.The net force of the body is zero that means the force are not being applied to the body at all and hence the body is in equilibrium. ",
+   answers:{
+     a:'The first part of the statement is false and other part is true',
+     b:'The first part of the statement is false and other part is false too',
+     c:'The first part of the statement is true and other part is false',
+     d:'The first part of the statement is true and other part is true too',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "5.Which of the following is correct ",
+   answers:{
+     a:'The application of the conditions of the equilibrium of the body is valid only in the 2D',
+     b:'The application of the conditions of the equilibrium of the body is valid only in the 3D ',
+     c:'The application of the conditions of the equilibrium of the body is valid only in the 1D',
+     d:'The application of the conditions of the equilibrium of the body is valid throughout',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "6.For the conditions of the equilibrium of the body, i.e. the rigid body only the external forces defines the equilibrium. Because the internal forces cancels out so not to be considered. ",
+    answers:{
+     a:'The first part of the statement is false and other part is true',
+     b:'The first part of the statement is false and other part is false too',
+     c:'The first part of the statement is true and other part is false',
+     d:'The first part of the statement is true and other part is true too',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "7.Which of the following needs to zero for the perfect equilibrium? ",
+   answers:{
+     a:' ∑F=0, ∑M=0 and ∑θ = 0',
+     b:'∑F=0, ∑M≠0 and ∑θ = 0',
+     c:'∑F≠0, ∑M=0 and ∑θ = 0',
+     d:'∑F=0, ∑M=0 and ∑θ≠0',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "8.The mass per unit volume of a body ",
+    answers:{
+     a:'Specific weight',
+     b:'Density',
+     c:'Pressure intensity',
+     d:'Energy',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "9. The weight per unit volume of a body",
+    answers:{
+     a:'Specific weight',
+     b:'Density',
+     c:'Pressure intensity',
+     d:'Energy',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10.The force acting on a unit area.",
+   answers:{
+     a:'Specific weight',
+     b:'Density',
+     c:'Pressure intensity',
+     d:'Energy',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11. Unit of Angular acceleration.",
+   answers:{
+     a:'Radian per second per second',
+     b:'Kilogram',
+     c:'Kilogram per cubic metre',
+     d:'Newton meter',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.Unit of the moment of a force ",
+   answers:{
+     a:'Pascal',
+     b:'Kilogram',
+     c:'Kilogram per cubic metre',
+     d:'Newton meter',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "13.If three forces acting at a point are in equilibrium, the ratio of any of the forces to the sine of the angle between the remaining two forces is the same.",
+   answers:{
+     a:'Lami’s theorem',
+     b:'The theorem of varignon',
+     c:'Moment of a force',
+     d:'Principle of transmissibility',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14.The algebraic sum of the moments of all the forces about any point in the plane of the forces equals",
+   answers:{
+     a:'0',
+     b:'1',
+     c:'-1',
+     d:'infinity',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15 A solid body in which deformation is neglected.. ",
+   answers:{
+     a:'Rigid body',
+     b:'specific mass',
+     c:'Deformable body',
+     d:'None of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "16.The reduction of a given system of forces to the simplest system that will be its equivalent ",
+   answers:{
+     a:'Transmissibility of Force',
+     b:'Resultant Force',
+     c:'Composition of forces',
+     d:'Resolving force',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "17. If all the forces in a system lie in a single plane, it is called",
+    answers:{
+     a: 'coplanar force system',
+     b:'concurrent force system',
+     c:'collinear force system',
+     d:'non coplanar',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.If the line of action of all the forces in a system  passes through a single point, it is called",
+   answers:{
+     a:'coplanar force system',
+     b:'concurrent force system',
+     c:'collinear force system',
+     d:'non coplanar',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.If the line of action of all the forces lies along a single line then it is called ",
+   answers:{
+     a:'coplanar force system',
+     b:'concurrent force system',
+     c:'collinear force system',
+     d:'non coplanar',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20 All forces are parallel to each other and lie in a single plane. ",
+    answers:{
+     a:'coplanar Nonconcurrent force',
+     b:'coplanar parallel forces',
+     c:'coplanar concurrent force',
+     d:'collinear force',
+    },
+   correctAnswer: 'b'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

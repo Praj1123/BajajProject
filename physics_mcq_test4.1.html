@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="notes_containt.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.Atomic Packing factor for FCC structure is ",
+    answers:{
+     a:'0.52',
+     b:'0.68',
+     c:'0.74',
+     d:'0.1',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "2.The Miller Indices ( hkl )represents ",
+    answers:{
+     a:'The direction',
+     b:'a plane',
+     c:'a set of parallel planes',
+     
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.Effective number of atoms for the unit cell of FCC structure is ",
+   answers:{
+     a:'6',
+     b:'2',
+     c:'4',
+    
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "4.The number of atoms per unit cell for a primitive unit cell ",
+   answers:{
+     a:'2',
+     b:'1',
+     c:'3',
+   
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "5.The planes (224) and (448) are ",
+   answers:{
+     a:'Parallel to each other',
+     b:' Perpendicular to each other',
+     c:'None',
+     
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "6.The packing density for BCC structure is ",
+    answers:{
+     a:'0.68',
+     b:'0.52',
+     c:'074',
+    
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "7. The packing fraction of diamond crystal is",
+   answers:{
+     a:'74 %',
+     b:'68%',
+     c:'52%',
+     d:'34%',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8. Repeatable entity of a crystal structure is known is",
+    answers:{
+     a:'Crystal',
+     b:'Lattice',
+     c:'Unit Cell',
+     d:'Miller Indices',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "9.X-rays were invented by the scientist ",
+    answers:{
+     a:'Newton',
+     b:'Goldstein',
+     c:'Bragg',
+     d:'Rontgen',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "10.Which of the following can not be deflected by a magnat ",
+   answers:{
+     a:'positive rays',
+     b:'cathode rays',
+     c:'X-rays',
+     d:'Beta rays',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11.The Miller indices for set of parallel planes are ",
+   answers:{
+     a:'Different',
+     b:'zero',
+     c:'same',
+     d:'none of above',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "12.Number of atoms per unit cell for Face centered Cubic structure is ",
+   answers:{
+     a:'1',
+     b:'2',
+     c:'4',
+     d:'None of these',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13.Co-ordination Number for Simple Cubic structure is ",
+   answers:{
+     a:'6',
+     b:'8',
+     c:'12',
+     d:'None of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14. Co-ordination Number for Face centered Cubic structure is",
+   answers:{
+     a:'6',
+     b:'8',
+     c:'12',
+     d:'None of these',
+    },
+   correctAnswer: ''
+  },
+  {
+    question: "15.Atomic packing factor (APF) for Simple Cubic structure is ",
+   answers:{
+     a:'52%',
+     b:'68%',
+     c:'74%',
+     d:'None of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "16.In continuous spectrum wavelength of X-rays is Inversely proportional to ",
+   answers:{
+     a:'Voltage',
+     b:'Atomic mass',
+     c:'target material',
+     d:'None of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17.Atomic packing factor (APF) for Body centered Cubic structure is ",
+    answers:{
+     a: '',
+     b:'',
+     c:'',
+     d:'',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "18.X-rays are deflected in ",
+   answers:{
+     a:'Only Electric field',
+     b:'only Magnetic field',
+     c:'Both',
+     d:'Not Deflected',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "19.The only element exhibiting simple cubic structure is ",
+   answers:{
+     a:'Silver',
+     b:'Polonium',
+     c:'Zinc',
+     d:'Diamond',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "20.Atomic packing factor (APF) for Face centered Cubic structure is ",
+    answers:{
+     a:'52%',
+     b:'68%',
+     c:'74%',
+     d:'c',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

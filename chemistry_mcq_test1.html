@@ -1,0 +1,362 @@
+
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="chemistry_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+     question: "1.Hardness of water is due to the presence ofsalts of ",
+     answers:{
+     a: 'Potassium',
+     b:'Chlorine',
+     c:'Magnesium',
+     d:'Boron',
+    },
+   correctAnswer: 'c'
+  },{
+     question: "2..Select the incorrect statement from the following option. ",
+     answers:{
+     a: ' Water which does not form lather with soap and forms white scum is called hardwater',
+     b:' Hard water contains dissolved calcium and magnesium salts in it',
+     c:'In hard water, cleansing quality of soap is depressed',
+     d:'Due to the presence of dissolved hardness producing salts, the boiling point of water is depressed',
+    },
+   correctAnswer: 'd'
+  },
+ {
+     question: "3.Select the incorrect statement from the following option. ",
+     answers:{
+     a: 'Permanent hardness is due to dissolved chlorides and sulphates of calcium and magnesium',
+     b:' It can be removed by mere boiling of water',
+     c:' It is also known as non-alkaline hardness',
+     d:' The difference between the total hardness and the alkaline hardness gives the nonalkaline hardness',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "4.Alkaline hardness is due to the presence ofbicarbonate, carbonate and hydroxides of thehardness-producing metal ions. ",
+     answers:{
+     a: 'True',
+     b:'False',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "5..Select the incorrect statement from the following option. ",
+     answers:{
+     a: 'The taste of hard water is better than soft water',
+     b:'The dissolved calcium in hard water can help to produce strong teeth',
+     c:'Hard water coats the lead piping with a layer of insoluble calcium carbonate which prevents poisonous lead dissolving in water',
+     d:'Boiler feed water should also be hard in nature',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "6.Hardness of water is conventionally expressed in terms of equivalent amount of ",
+     answers:{
+     a: 'H2CO3',
+     b:'MgCO3',
+     c:'CaCO3',
+     d:'Na2 CO3',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "7.The chemical equivalent of MgSO4 salt is ",
+     answers:{
+     a: ' 60',
+     b:'47.5',
+     c:'82',
+     d:'68',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "8.Which of the following is not a unit ofhardness? ",
+     answers:{
+     a: ' Parts per million',
+     b:'Degree centigrade',
+     c:'Degree clarke',
+     d:'Degree French',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "9.degree Clarke = 1 part of CaCO3 per ___________parts of water. ",
+     answers:{
+     a: ' 10,000',
+     b:'30,000',
+     c:' 50,000',
+     d:'70,000',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "10.10.1 ppm = ",
+     answers:{
+     a: ' 0.07 0Fr',
+     b:' 0.70Fr',
+     c:'0.10Fr',
+     d:'0.010Fr',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "11..How many grams of MgCO3 dissolved per litre gives 84 ppm hardness? ",
+     answers:{
+     a: ' 70.56 mg/L',
+     b:'48.23 mg/L',
+     c:'81.49mg/L',
+     d:'66.12 mg/L',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "12.EDTA method for hardness determination is a less accurate and inconvenient procedure. ",
+     answers:{
+     a: 'true',
+     b:'false',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "13. Total hardness of water can be determined by titrating the fixed volume of water against the standard solution.",
+     answers:{
+     a: 'Soap',
+     b:'Alkaline soap',
+     c:'Acidic soap',
+     d:'Alcoholic soap',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "14.The end point of the titration in the soaptitration method is ",
+     answers:{
+     a: ' Formation of lather',
+     b:'Formation of salts',
+     c:'Formation of carbonates',
+     d:'Formation of bicarbonates',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "15. The sodium soap will precipitate all the hardness causing ions into their respective",
+     answers:{
+     a: 'Carbonates',
+     b:' Bicarbonates',
+     c:'Stereates',
+     d:'Chlorides',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "16.The water which form lather directly with the soap is called ",
+     answers:{
+     a: 'Hard water',
+     b:'Soft water',
+     c:' Partially hard water',
+     d:'Very hard water',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "17. EDTA method is also called as",
+     answers:{
+     a: 'Complexometric titration',
+     b:'Complex titration',
+     c:'Complement titration',
+     d:'Complexion titration',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "18..The indicator used in the EDTA method is ",
+     answers:{
+     a: 'Benzene',
+     b:'Phenopthalene',
+     c:' Ethylene diamine',
+     d:' Erichrome black T',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "19.EDTA has the ability to form with metal ions. ",
+     answers:{
+     a: 'Stable complexes',
+     b:'Unstable complexes',
+     c:'Salts',
+     d:'Acids',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "20.The colour of dye metal complex and dye are ",
+     answers:{
+     a: ' Same',
+     b:'Different',
+     c:'Same in only some cases',
+     d:'Cannot be known',
+    },
+   correctAnswer: 'b'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+// for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

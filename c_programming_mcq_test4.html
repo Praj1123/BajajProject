@@ -1,0 +1,370 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="c_programming_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.what is expected message when we compile/Run the program with following array initialization? int x[3]={10,20,30,40};",
+    answers:{
+     a:'Error',
+     b:'Warning',
+     c:' Success (without warning and error)',
+     d:'None of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "2.What will happen if in a C program you assign a value to an array element whose subscript exceeds the size of array? ",
+    answers:{
+     a:'The element will be set to 0.',
+     b:' The compiler would report an error',
+     c:'The program may crash if some important data gets overwritten.',
+     d:'The array size would appropriately grow.', 
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.what is appropriate initialization of character array ",
+   answers:{
+     a:'. char z[8]={‘W’,’E’,’L’,’C’,’O’,’M’,’E’,’\0’};',
+     b:'char z[8]= {‘W’,’E’,’L’,’C’,’O’,’M’,’E’};',
+     c:'char z[10]= “WELCOME”;',
+     d:'char z[]= {“WELCOME”};',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4. In C, if you pass an array as an argument to a function, what actually gets passed? ",
+   answers:{
+     a:'Value of elements in array',
+     b:' First element of the array',
+     c:'Base address of the array',
+     d:' Address of the last element of array',
+   
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "5.  what is the maximum number of dimensions an array in C may have?",
+   answers:{
+     a:'Theoretically no limit. The only practical limits are memory size and compilers.',
+     b:' 50',
+     c:'20',
+     d:'8',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "6.Size of the array need not be specified, when ",
+    answers:{
+     a:' Initialization is a part of definition',
+     b:' It is a declaration',
+     c:' It is a formal parameter',
+     d:' All of these',
+    
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "7.Array passed as an argument to a function is interpreted as ",
+   answers:{
+     a:'Address of the array.',
+     b:'Values of the first elements of the array',
+     c:' Address of the first element of the array',
+     d:'Number of element of the array.',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "8. String concatenation means – ",
+    answers:{
+     a:'Combining two strings.',
+     b:'Extracting a substring out of a string.',
+     c:' Partitioning the string into two strings.',
+     d:'Merging two strings',
+     e:'Comparing the two strings to define the larger one',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9. which of the following correctly accesses the seventh element stored in arr, an array with 100 elements? ",
+    answers:{
+     a:'arr[6]',
+     b:' arr[7]',
+     c:' arr{6}',
+     d:'arr{7}',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "10.If the two strings are identical, then strcmp() function returns ",
+   answers:{
+     a:'1',
+     b:'0',
+     c:'-1',
+     d:'True',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "11.What will be the address of the arr[2][3] if arr is a 2-D long array of 4 rows and 5 columns and starting address of the array is 2000? ",
+   answers:{
+     a:'2052',
+     b:' 2042',
+     c:'2056',
+     d:' 2048',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12. What does the following declaration mean? int (*ptr)[10];",
+   answers:{
+     a:'ptr is an array of 10 integers',
+     b:' ptr is an pointer to array',
+     c:'ptr is a pointer to an array of 10 integers',
+     d:'ptr is array of pointers to 10 integers',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13.In C, if you pass an array as an argument to a function, what actually gets passed? ",
+   answers:{
+     a:'Value of elements in array',
+     b:'First element of the array',
+     c:'Base address of the array',
+     d:'Address of the last element of array',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "14.Size of the array need not be specified, when",
+   answers:{
+     a:'It is a formal parameter',
+     b:'It is a declaratrion',
+     c:' Initialization is a part of definition',
+     d:'All of these',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "15. When does the ArrayIndexOutOfBoundsException occur?",
+   answers:{
+     a:'Run-time',
+     b:'Not an error',
+     c:'Compile-time',
+     d:'Not an exception at all',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "16.An array elements are always stored in ________ memory locations. ",
+   answers:{
+     a:'Random',
+     b:'None of the above',
+     c:'Sequential',
+     d:'Sequential and Random',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "17. Array is an example of _______ type memory allocation.",
+    answers:{
+     a:'Compile time',
+     b:'Run time',
+     c:'Both A and B',
+     d:'None of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18 Size of the array need not be specified, when",
+   answers:{
+     a:'It is a formal parameter',
+     b:' Initialization is a part of definition',
+     c:' All of the above',
+     d:'It is a declaratrion',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19. In the below statement, what does the 'arr' indicates? char *arr[20]; ",
+   answers:{
+     a:'  arr is an array of 20 characters',
+     b:' arr is an array of 20 character pointers ',
+     c:'arr is an array of function',
+     d:' arr is a pointer to an array',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "20. The parameter passing mechanism for an array is",
+    answers:{
+     a:'call by reference',
+     b:'call by value',
+     c:'call by value-result',
+     d:'None of the above',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

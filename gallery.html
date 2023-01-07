@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>  </title>
+   <meta name:"viewport" content="width=device-width, initial-scale=1.0">
+   <style type="text/css">
+      * {
+         box-sizing: border-box;
+      }
+     
+      html, body {
+         margin: 0;
+         padding: 0;
+      }
+      .image-container {
+         border-radius: 15px;
+         margin: 0 auto; /* center the image containers */
+         height: 700px;
+         width: 80%;
+         box-shadow: 0 15px 30px rgba(0,0,0,0.30), 0 11px 8px rgba(0,0,0,0.22); /* material box shadow */
+         margin-bottom: 20px;
+         transition-duration: 1s;
+      }
+      .image-container:hover {
+         width: 90%;
+         box-shadow: 0 18px 36px rgba(0,0,0,0.30), 0 14px 11px rgba(0,0,0,0.22);
+      }
+      /* make the images responsive */
+      img {
+         width: 100%;
+         border-radius: 15px;
+         height: 700px;
+         object-fit: cover;
+      }
+      .image-description {
+         padding: 0 15px 15px 15px;
+         text-align: center;
+      }
+      /* lightbox stylesheet */
+      .lightbox {
+         display: table; /* helps us center the lightbox-content */
+         transition-duration: 1s; /* duration of the fade in effect */
+         
+         /* make the lightbox occupy the entire page */
+         position: fixed;
+         top: -100%; /* hide the lightbox above the top edge */
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.7); /* black with 0.7 opacity */
+      }
+      .lightbox:target {
+         top: 0; /* make the lightbox cover the entire page */
+      }
+      .lightbox-content {
+         display: table-cell;
+         vertical-align: middle; /* vertically center */
+         text-align: center; /* horizontally center */
+      }
+      .close {
+         /* position the CLOSE button to the top-right corner */
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         
+         /* style the close button */
+         font-size: 20px;
+         font-weight: 300;
+         text-decoration: none;
+         color: white;
+      }
+      
+      /* make the image responsive */
+      .lightbox img {
+         width: 100%;
+         height: auto;
+      }
+   </style>
+</head>
+<body>
+    <h1 style="text-align: center">BIT Gallery </h1>
+   <div class="gallery">
+        
+      <div class="image-container" id="container1">
+         <a href="#image1"><img src="https://dsm01pap006files.storage.live.com/y4m__yjjVzpH3Yx5a0wr4KJ2fDvsMibtBm_Xcm5fKH1m6lHt4OkLxz878U01MHy7FPDP5JaVGEu1yvz-zhSrwn9C6AYdYxLAHcyWSRyHQh03cj1AoQgGAhdgdqVnJPfiBvgt57zChPOv6y2LXglvpOgCDvpb9F8asPpyTADjGTBm1rE5iwmzewgh0Kgg1pUNiSN?width=4000&height=2661&cropmode=none" /></a>
+         <p class="image-description"></p>
+      </div>
+      
+      <div class="image-container" id="container2">
+         <a href="#image2"><img src="https://dsm01pap006files.storage.live.com/y4muqwgR2gP1j9jF93D0us50ekpIMXPuZmX8HuR0F0EwyOoifaSj2DSUL7l_p_6gPDetQ6m4VEGo193Kef-VD2zhIaVmhSNmyRxl0mGPaqYFjIfVy6ZFa_7uQOCMQb71t9sLluRZo4QS2o_GWuriJbkWb255Dq4ofD9ZkLnXecth0CNbav_p-kvD5ywdAAFYN7F?width=4160&height=1872&cropmode=none" /></a>
+         <p class="image-description"></p>
+      </div>
+      
+      <div class="image-container" id="container3">
+         <a href="#image3"><img src="https://dsm01pap006files.storage.live.com/y4mlorL1253pIXlORlmDkCBmBBrOrkkp2X2T4mLaLcKdEnq5mz-LdWE-AdOYYQrkQIfvAE_B-d52InUYhJEeUMMWRq6y3YBIB1E3PBdl-mLj-rJzSACjrgF_LakZfLmCqa8yCaQgbz38UXUfI3XfxRnibbwuutVyqrGHx7bfkG7hFwEE2b7Vkk7ol7iyyL0aBOO?width=1872&height=4160&cropmode=none" /></a>
+         <p class="image-description"></p>
+      </div>
+      
+      <div class="image-container" id="container4">
+         <a href="#image4"><img src="https://dsm01pap006files.storage.live.com/y4mZCzTqs2WNlHjTFDi-2VcfPbkjovTipc_8_5vOUPNgOO-mzAnS1lPvWHSLuL_hz3UPq3Q1W1FSjH1wSe9sRsipCTclmLQkESZVpSew_PAWMDtpghHrmE_xIPku_IbHEtPAE0K2EmOhjQakWaHwAoh_LtHhuwxu5_TSu1w1SY3H22lXvQUgtMWQqR-hNBF4b6f?width=1868&height=3660&cropmode=none" /></a>
+         <p class="image-description"> </p>
+      </div>
+
+      <div class="image-container" id="container5">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mdk7Ku4MtyvYJ_rJAI-Y58aIw1FcPeifMTH8D84qBX6lQQf80rgFZt1WILKsXrRkvK1Cf3koxU2yhZ7TqjtdJYfWWjzBT88POg_S96UcDtaWSgXU71KUNP-aKon3OMRStCd4NzBGTNH087Dm50fdc3rpSGzOg5NLEdpb_6VpgNXJn8fZz5nEo3r8KOCwssp50?width=4160&height=1872&cropmode=none" /></a>
+        <p class="image-description"></p>
+     </div>
+     <div class="image-container" id="container6">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mZM-4hgsRrnaEr_J4-f5g33pyFWNQFkqqFx19QxHdbqAyERb-7SdIt_WH1VKL3B9lQe1sPQyrpK8LkL6qZlkId68kAX1d9nQ4CJA1PpfDIJAaFatek4MIMkLO_p4_Fy5aV6b5H110G5t7XVzqvzLhau_yVPfbHlm4rQFf5PbKt0F_Kh0pkBrS862Hq6bKJgNK?width=3120&height=3120&cropmode=none" /></a>
+        <p class="image-description"></p>
+     </div>
+     <div class="image-container" id="container7">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mF3PlzDKYKPOTKbcffnIP7FpAr2UK9JRsdvptfalU7rY4cC2fWzW7rpt_qNCpqakm6y_t8VGjdIMLfrq87wUYBZNz-YlHgX-M-5cRfLgbwnz9cbj_hc8Hcxkrj5aiWmQtjLoR3c9ahJHCW6Dpti57Ju4Xjk7SXeIrPo9NOyeCiro91Lr-lQkMUxs3cVTlPdPQ?width=4160&height=1864&cropmode=none" /></a>
+        <p class="image-description"> </p>
+     </div>
+     
+     <div class="image-container" id="container9">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mFMpcVrwsjc3-QyimnudnyvCx2aYwK2wma5M1YYNq1ztciMNo2azgU8UTGvKdP7aIt0unWrrXvL5xNbHzV_wC17cUL1j_Xo1TAxSiBQTRWxZ5ZNehazcAcYFRz4xU0PbOKI-3UtzYNVhfGl6Yyj52b98WcxKUnTlY2obhXiwm7qgsX3ARrSfjoQbudLBPqeXW?width=1872&height=4160&cropmode=none" /></a>
+        <p class="image-description"></p>
+     </div>
+     <div class="image-container" id="container10">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mVdsOwFoAFEg1I2HjHKHmmrk2UvBam8Z4MQtCkaQSbiA2BL5Ll7nc8612m0E3qJYkxmSBUgBd3IxMhtvOTPQB8Mkcdkt3gUN0MzZjRvIlRZY7QKYIie2DEx8vCg97ZYH-rvhAMoGGMGEqm_NhpPJWlEhtTChHAdpb8HyR5q0xh1jtLUd4L8Rgv4tax1b8grL3?width=1872&height=4160&cropmode=none" /></a>
+        <p class="image-description">  </p>
+     </div>
+     <div class="image-container" id="container11">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mVdsOwFoAFEg1I2HjHKHmmrk2UvBam8Z4MQtCkaQSbiA2BL5Ll7nc8612m0E3qJYkxmSBUgBd3IxMhtvOTPQB8Mkcdkt3gUN0MzZjRvIlRZY7QKYIie2DEx8vCg97ZYH-rvhAMoGGMGEqm_NhpPJWlEhtTChHAdpb8HyR5q0xh1jtLUd4L8Rgv4tax1b8grL3?width=1872&height=4160&cropmode=none" /></a>
+        <p class="image-description">  </p>
+     </div>
+     <div class="image-container" id="container12">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mPD_5864gAIvNHqcePhSfCWZlXRFq8dwbLXqs1cwyxzEOczD8rZLg3xrYZ3lG5P_giYxBNNWLOllhDaplVhdGjj-7YhKKG1Iv_wQpIJ0pG4p5a3m1MVq-Avr2bsVMQRmcbvLObplO9Pg0OgNxtN1KBaOUQ6nEJLu4SdQrQVf4kRlacM1p3Wyhv_uheZ_RWms1?width=1918&height=4206&cropmode=none" /></a>
+        <p class="image-description">  </p>
+     </div>
+     <div class="image-container" id="container13">
+        <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mDVFCbS8LjdplPpicGEeVgnnFD-bopQiTb0yuaGxVJRTpnXe_F1DA33KYlsTE1_A8yTFYo_ia1dRI1aLROUq7aYjPUupG-PglD3rzt8mHDZN-2s8LSE-PbW5SwHgaPSguXafTzIM_MjlsXBd0Y5Snyq4kamNwuJy24GxyjCWbjZywurLHhbLVU1Sci7VEnPaS?width=1872&height=4160&cropmode=none" /></a>
+        <p class="image-description"></p>
+     </div>
+     <div class="image-container" id="container14">
+        <a href="#image5"><img src="images/1.jpg" /></a>
+        <p class="image-description"> </p>
+     </div>
+     <div class="image-container" id="container15">
+      <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mr2YZLmUdGeydSlNBoPlyDSG5jS49gQb__AUDEcXWP-AVmM_LAlw1Y1NuSgxiYaT8YCmlup5M-tugh0us2WfkylgdfnvjIDUxDfktHPBdCzWwLkAWuRXIdtwqC1QNrrBYIcm9Fcw-8EN_aNKxe9Py6lCrahY2c7GbTXb9eC45YwJxIP58e7g0_-X1t-URP9ur?width=3000&height=2250&cropmode=none" /></a>
+      <p class="image-description"> </p>
+   </div>
+  
+ <div class="image-container" id="container17">
+  <a href="#image5"><img src="https://dsm01pap006files.storage.live.com/y4mmXxL1Q3hcOkMqEWYNp8ibfHjxoJmg9gUA9MvJ4FsSJCIxrcwnDieLO_tD7EmGfNBh_ujq73Z1EaxWeRBQbY5KtHhPNUngb_hc_v0B7mMZDIYPK1yB27nNW5NJXdk3eI5eacfyi3nIJ1oanoUx3M0Q78UEALNUS4iCbXHlbNUDWvzu20_3LuyQKQY6xBnjNLb?width=4000&height=2525&cropmode=none" /></a>
+  <p class="image-description"> </p>
+</div>
+
+
+
+
+
+   <!-- <div class="lightbox" id="image1">
+      <a href="#" class="close">CLOSE</a>
+      <div class="lightbox-content">
+         <img src="images/road.jpg" />
+      </div>
+   </div>
+   
+   <div class="lightbox" id="image2">
+      <a href="#" class="close">CLOSE</a>
+      <div class="lightbox-content">
+         <img src="images/snow.jpg" />
+      </div>
+   </div>
+   
+   <div class="lightbox" id="image3">
+      <a href="#container3" class="close">CLOSE</a>
+      <div class="lightbox-content">
+         <img src="images/city.jpg" />
+      </div>
+   </div>
+   
+   <div class="lightbox" id="image4">
+      <a href="#container4" class="close">CLOSE</a>
+      <div class="lightbox-content">
+         <img src="images/blue-planet.jpg" />
+      </div>
+   </div> -->
+</body>
+</html>

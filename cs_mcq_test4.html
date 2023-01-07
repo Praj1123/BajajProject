@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="cs_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. Have you visited London? ______.",
+    answers:{
+     a:' Not yet',
+     b:'Ever',
+     c:'Already',
+     d:'Not ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "2. They have all been friends ________ their first match as a team.",
+    answers:{
+     a:'since ',
+     b:' for ',
+     c:'from ',
+     d:'during',
+    },
+   correctAnswer: 'a'
+  },
+ {
+   question: "3.You ______ the cleaning. I would have done it tonight",
+   answers:{
+     a:' need not have done ',
+     b:'could not have done ',
+     c:'can not have done ',
+     d:'would not have done ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.This dress suits her style. She __________ definitely like it!",
+   answers:{
+     a:'can ',
+     b:'could ',
+     c:'will ',
+     d:'may',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "5.When Juan was two, he __________ already speak very well.",
+   answers:{
+     a:'might ',
+     b:'can ',
+     c:'could ',
+     d:'should',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "6.She __________ visit her grandparents’ house during holidays.",
+    answers:{
+     a:' dare to ',
+     b:'ought to ',
+     c:'can ',
+     d:'might ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "7.__________ I talk to the manager",
+   answers:{
+     a:' Might ',
+     b:'May ',
+     c:'Could',
+     d:'Shall',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "8.During peak hours, it _________ take more than two hours.",
+    answers:{
+     a:'can ',
+     b:'should ',
+     c:'shall',
+     d:'will',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "9. How __________ she do that to us!.",
+    answers:{
+     a:'would',
+     b:'must',
+     c:'could',
+     d:'shall',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "10.If I get the required assistance, I __________ pass the exam in the first attempt..",
+   answers:{
+     a:'shall ',
+     b:'can not',
+     c:'might ',
+     d:' could ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11.The audience __________ settle before the doors are closed.",
+   answers:{
+     a:'can ',
+     b:'shall ',
+     c:'might ',
+     d:'must ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "12.We __________ always respect our elders",
+   answers:{
+     a:'can ',
+     b:'will ',
+     c:'should ',
+     d:'could ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "13.___________ we save money for the party ",
+   answers:{
+     a:' would',
+     b:'should',
+     c:'need ',
+     d:'dare ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14.All students __________ obey the school regulations",
+   answers:{
+     a:'could ',
+     b:'must ',
+     c:'are able to     .',
+     d:'will .',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "15 You __________ visit them, just make a phone call.?.",
+   answers:{
+     a:'can not   .',
+     b:'will ',
+     c:'need not     .',
+     d:'shall not',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.All members ___________ attend the meeting as per the notice.",
+   answers:{
+     a:'  can ',
+     b:'would ',
+     c:'might ',
+     d:' should ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "17. There ________ be a famous shop here?",
+    answers:{
+     a: ' used to',
+     b:'should',
+     c:' ought to ',
+     d:'would ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "18. There has been a landslide. You __________ be careful while driving there.",
+   answers:{
+     a:'can ',
+     b:'must ',
+     c:'could ',
+     d:'would ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "19. I ___________ have won the tournament.",
+   answers:{
+     a:'need to',
+     b:'will ',
+     c:'could ',
+     d:'dare to',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20 You __________ speak in the library..",
+    answers:{
+     a:'must not',
+     b:'dare not',
+     c:'need not',
+     d:'could not',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

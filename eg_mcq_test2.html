@@ -1,0 +1,362 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eg_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. The straight lines which are drawn from various points on the contour of an object to meet a plane are called as _________",
+    answers:{
+     a:'connecting lines',
+     b:'projectors',
+     c:'perpendicular lines',
+     d:'hidden lines.',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "2.When the projectors are parallel to each other and also perpendicular to the plane, the projection is called ___________________________ ",
+    answers:{
+     a:'Perspective projection',
+     b:'Oblique projection',
+     c:'Isometric projection',
+     d:'Orthographic projection',
+    },
+   correctAnswer: 'd'
+  },
+ {
+   question: "3.The object we see in our surrounding usually without drawing came under which projection? ",
+   answers:{
+     a:'Perspective projection',
+     b:'Oblique projection',
+     c:'Isometric projection',
+     d:'Orthographic projection',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.In orthographic projection, each projection view represents how many dimensions of an object? ",
+   answers:{
+     a:'1',
+     b:'2',
+     c:'3',
+     d:'0',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "5.In orthographic projection an object is represented by two or three views on different planes which _________________ ",
+   answers:{
+     a:'gives views from different angles from different directions',
+     b:' are mutually perpendicular projection planes',
+     c:'are parallel along one direction but at different cross-section',
+     d:'are obtained by taking prints from 2 or 3 sides of object',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "6.To represent the object on paper by orthographic projection the horizontal plane (H.P) should be placed in which way? ",
+    answers:{
+     a:'The H.P is turned in a clockwise direction up to 90 degrees',
+     b:'The H.P is turned in anti-clockwise direction up to 90 degrees',
+     c:'H.P plane is placed to left side of vertical plane parallel to it',
+     d:'H.P plane is placed to right side of vertical plane parallel to it',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "7. The hidden parts inside or back side of object while represented in orthographic projection are represented by which line?",
+   answers:{
+     a:'Continuous thick line',
+     b:'Continuous thin line',
+     c:'Dashed thin line',
+     d:'Long-break line',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "8.Orthographic projection is the representation of two or more views on the mutual perpendicular projection planes. ",
+    answers:{
+     a:'True',
+     b:'False',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9.In perspective projection and oblique projection, the projectors are not parallel to each other. ",
+    answers:{
+     a:'True',
+     b:'False',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10.What is additional 3rd view on orthographic projection in general for simpleobjects? ",
+   answers:{
+     a:'Front view',
+     b:'Top view',
+     c:'Side view',
+     d:'View at 45 degrees perpendicular to horizontal plane',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11.The front view of an object is shown on which plane? ",
+   answers:{
+     a:'Profile plane',
+     b:'Vertical plane',
+     c:'Horizontal plane',
+     d:'Parallel plane',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "12.The side view of an object is shown on which plane? ",
+   answers:{
+     a:'Profile plane',
+     b:'Vertical plane',
+     c:'Horizontal plane',
+     d:'Parallel plane',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "13. A line AB is on the vertical plane of projection planes, which view from the following gives the actual length of the line AB?",
+   answers:{
+     a:'Front view',
+     b:'Top view',
+     c:'Side view',
+     d:'Isometric view',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14.A line AB is on the horizontal plane inclined to a vertical plane at 45 degrees, which view from the following gives the actual length of the line AB?",
+   answers:{
+     a:'Front view',
+     b:'Top view',
+     c:'Side view',
+     d:'Isometric view',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "15.A line AB is on the profile plane inclined such that ends of line are 10, 12 cm away from horizontal plane, which view from the following gives the actual length of the line AB? ",
+   answers:{
+     a:'Front view',
+     b:'Top view',
+     c:'Side view',
+     d:'Isometric view',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.A line PQ lie in both the vertical plane and profile plane the front and side views of that line coincides at vertical reference line. ",
+   answers:{
+     a:'True',
+     b:'False',
+  
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17.If a line RS lie on both vertical and horizontal plane then which of the following two views coincides to give a line again? ",
+    answers:{
+     a: 'Front, Top',
+     b:'Top, Side',
+     c:'Side, Isometric',
+     d:'Isometric, Front',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.A line of length 55 mm lies on profile plane whose ends are at a distance of 5 mm and 20 mm to horizontal plane. What is the length in top view?",
+   answers:{
+     a:'54.77 mm',
+     b:'5 mm',
+     c:'0 mm',
+     d:'35 mm',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.A line of length 35 mm lies on vertical plane whose ends are at a distance of 15 mm and 10 mm to profile plane. What is the length in top view? ",
+   answers:{
+     a:'0 mm',
+     b:'35 mm',
+     c:'5 mm',
+     d:'34.64 mm',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20.A line of length 12 cm lies on profile plane whose ends are at a distance of 4cm and 5 cm to vertical plane. What is the length in top view? ",
+    answers:{
+     a:'5 cm',
+     b:'12 cm',
+     c:'1 cm',
+     d:'11.9 cm',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

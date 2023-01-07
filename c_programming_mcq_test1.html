@@ -1,0 +1,372 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="c_programming_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. C program is converted into machine language with the help of",
+    answers:{
+     a:'An Editor ',
+     b:'A compiler',
+     c:'An operating system',
+     d:'None of the above',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "2. We use ……… as an IDE to run C program",
+    answers:{
+     a:'Jdk',
+     b:'Turbo C/ Turbo C++',
+     c:'Oracle', 
+     d:'Notepad',
+     
+    },
+   correctAnswer: 'b'
+  },
+ {
+    question:"3.The symbol '#'' is called ____",
+    answers:{
+     a:'Header files',
+     b:'Preprocessor',
+     c:'include',
+     d:'semicolon',
+    
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "4. Basic symbols of flowchart are __________ ",
+   answers:{
+     a:'Start and End',
+     b:' Processing, Decision',
+     c:'Input, Output',
+     d:'All of above',
+   
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "5. Diamond shape in flow chart denotes ___________ ",
+   answers:{
+     a:'Start',
+     b:'Decision ',
+     c:'End',
+     d:'Input - Output task',
+     
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "6.Algorithm and Flowchart help us to_____ ",
+    answers:{
+     a:'Know the memory capacity',
+     b:'Identify the base of a number system',
+     c:' Direct the output to a printer',
+     d:'DSpecify the problem completely and clearly',
+    
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "7.Syntax errors are ___________ than logical error. ",
+   answers:{
+     a:'Easy to remove',
+     b:'Difficult to remove',
+     c:'difficult to detect',
+     d:' None of above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "8.Parallelogram is used to represent __________ in a flowchart. ",
+    answers:{
+     a:'Decision',
+     b:'Processing',
+     c:'Termination',
+     d:' Input and Output',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "9.Logical error in a program will ___________ error message ",
+    answers:{
+     a:'procedure',
+     b:'NOt produce',
+     c:'do nothing',
+     d:'All of above',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10. Which are the types of errors that can occur in a computer program?",
+   answers:{
+     a:'Logical errors',
+     b:'Syntax errors',
+     c:'Both A and B',
+     d:'None of these',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "11. Run Time Errors are encountered at the time of ____",
+   answers:{
+     a:'Execution',
+     b:'Compilation',
+     c:'Coding',
+     d:'Saving',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.Comments are _______ ",
+   answers:{
+     a:'Executable statements',
+     b:'Non executable statements',
+     c:'Assignment statements',
+     d:'Input/output statements',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.Which standard library header file is used for functions prototype for standard input and output functions? ",
+   answers:{
+     a:'<stdio.h>',
+     b:'<conio.h>',
+     c:' <math.h>',
+     d:'<dos.h>',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "14.A programmer can create custom header files that must be end with",
+   answers:{
+     a:'.h extension',
+     b:'.l extension',
+     c:' .ios extension',
+     d:'.a extension',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "15.The ` C ` expression ` int c=a+d/2) ` is having a____ ",
+   answers:{
+     a:'Logical error',
+     b:'syntax error',
+     c:'compiler error',
+     d:'semantic error',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "16. The process of removing a bug is known as ",
+   answers:{
+     a:'running',
+     b:'executing',
+     c:'debugging',
+     d:'compilation',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "17. which of the following is not a translator program? ",
+    answers:{
+     a: 'Linker',
+     b:'assembler',
+     c:'Compiler',
+     d:'Interpreter',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "18.Which of the following is used to perform computations on the entered data?",
+   answers:{
+     a:'Memory',
+     b:'Processor',
+     c:'input devices',
+     d:' Output devices',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "19.  which of the following is known as the ‘languange of the computer’?",
+   answers:{
+     a:' Programming languange',
+     b:'High level languange',
+     c:' Machine languange',
+     d:'Assembly language',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20.Pseudo code is ",
+    answers:{
+     a:'Language independent code',
+     b:' refined version of program',
+     c:' Code developed using the syntax of a specific language',
+     d:'Outcome of compilation process',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

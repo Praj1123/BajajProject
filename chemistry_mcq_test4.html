@@ -1,0 +1,364 @@
+
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="chemistry_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+     question: "1.A good fuel has ",
+     answers:{
+     a: 'Moderate ignition temperature and high calorific value',
+     b:'High ignition temperature and high calorific value',
+     c:'Low ignition temperature and low calorific value',
+     d:'Low ignition temperature and high calorific value',
+    },
+   correctAnswer: 'a'
+  },{
+     question: "2.The total quantity of heat liberated when a unit mass (or volume) of a fuel is burnt completely is called its ",
+     answers:{
+     a: 'Heat value',
+     b:'Calorific value',
+     c:'Burning value',
+     d:'Combustion value',
+    },
+   correctAnswer: 'b'
+  },
+ {
+     question: "3. The calorific value of solid or non-volatile liquid fuel is found with the help of",
+     answers:{
+     a: 'Junkers calorimeter',
+     b:'Bomb calorimeter',
+     c:'Boys calorimeter',
+     d:'Orsat apparatus',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "4.Ultimate analysis of coal is used to determine ",
+     answers:{
+     a: 'Percentage of carbon and hydrogen',
+     b:'Percentage of sulphur',
+     c:'Percentage of nitrogen',
+     d:'All of the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "5.The following can be estimated using the proximate analysis of coal ",
+     answers:{
+     a: 'Percentage of moisture',
+     b:'Percentage of volatile matter',
+     c:'Percentage of ash',
+     d:'All of the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "6. Synthetic petrol can be obtained by",
+     answers:{
+     a: 'Polymerisation',
+     b:'Fischer–Tropsch method',
+     c:'Bergius process',
+     d:'All of the above',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "7. The process of bringing structural modifications in straight run gasoline to improve its antiknock characteristics is termed as",
+     answers:{
+     a: 'Cracking',
+     b:'Refining',
+     c:'Reforming',
+     d:'Knocking',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "8.Junker’s calorimeter is used to determine the calorific value of a ",
+     answers:{
+     a: 'Gaseous fuel',
+     b:'Solid fuel',
+     c:'Liquid fuel',
+     d:'None of the above',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "9.The ignition characteristics of diesel are expressed in terms of ",
+     answers:{
+     a: 'Octane number',
+     b:'Cetane number',
+     c:'Viscosity',
+     d:'Flash and fire point',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "10.The addition of TEL to gasoline ",
+     answers:{
+     a: 'Increases the viscosity of gasoline',
+     b:'Increases the rate of combustion of gasoline',
+     c:'Increases the octane number of gasoline',
+     d:'Decreases the octane number of gasoline',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "11. Oil gas is obtained by the cracking of",
+     answers:{
+     a: 'Diesel oil',
+     b:'Petrol',
+     c:'Kerosene oil',
+     d:'Heavy oil',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "12.Producer gas is a mixture of ",
+     answers:{
+     a: 'CO + N2',
+     b:'CO + H2',
+     c:'CO + CO2',
+     d:'CO + O2 ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "13.The gas named ‘blue gas’ is ",
+     answers:{
+     a: 'Producer gas',
+     b:'Water gas',
+     c:'CNG',
+     d:'LPG',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "14.Lubricant act as a coolant to carry away heat. ",
+     answers:{
+     a: 'True',
+     b:'False',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "15.Select the incorrect statement from the following option. ",
+     answers:{
+     a: 'Lubricant keeps out dirt',
+     b:'Lubricant act as a seal',
+     c:' Lubricant transmit fluid power',
+     d:'Lubricant enhance corrosion',
+    },
+   correctAnswer: 'd'
+  },
+  {
+     question: "16.The viscosity of petroleum oil for hydraulic lifts is ____________ ",
+     answers:{
+     a: 'High',
+     b:'Low',
+     c:'Moderate',
+     d:'Very high',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "17.The science of friction, lubrication and wear is called ____________ ",
+     answers:{
+     a: 'Endiology',
+     b:'Geology',
+     c:'Tribology',
+     d:'Morphology',
+    },
+   correctAnswer: 'c'
+  },
+  {
+     question: "18.The stearate ion has a ________ carbons long hydrocarbon chain. ",
+     answers:{
+     a: '17',
+     b:'19',
+     c:'21',
+     d:'23',
+    },
+   correctAnswer: 'a'
+  },
+  {
+     question: "19.Which type of fuel is lignite?",
+     answers:{
+     a: ' Secondary fuel',
+     b:' Primary fuel',
+     c:' Liquid fuel',
+     d:'Gaseous fuel',
+    },
+   correctAnswer: 'b'
+  },
+  {
+     question: "20.Acetylene and synthesis gas are examples of __________ ",
+     answers:{
+     a: 'Primary gaseous fuels',
+     b:' Gaseous fuels',
+     c:'Secondary gaseous fuels',
+     d:' Liquid fuels',
+    },
+   correctAnswer: 'c'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+// for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+* {
+  box-sizing: border-box
+  
+}
+
+/* Set height of body and the document to 100% */
+body, html {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif';
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+.wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
+}
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  /* left: 20px; */
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background: #000;
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .menu-btn{
+  color: #fff;
+}
+#active:checked ~ .menu-btn i:before{
+  content: "\f00d";
+}
+.wrapper ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+  line-height: 50px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 104%;
+  height: 110%;
+  left: -2%;
+  top: -5%; 
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  animation: rotate 1.5s linear infinite;
+  transition: transform 0.3s ease;
+}
+h3, h4{
+  font-weight: normal;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: #fff;
+}
+input[type="checkbox"]{
+  display: none;
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  text-align: center;
+  width: 100%;
+  color: #202020;
+}
+.content .title{
+  font-size: 40px;
+  font-weight: 700;
+}
+.content p{
+  font-size: 35px;
+  font-weight: 600;
+}
+
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }}
+#menu{
+height:10px;
+width:100%;
+padding-left:290px;
+padding-top:20px;
+}
+#header{
+height:40%;
+width:100%;
+background-color:#2EFFC6;
+}
+#links a {
+  font-weight: normal;
+  color:black; text-decoration: none;
+}
+#links a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+#body{
+margin-top:-20px;
+height:100%;
+width:100%;
+background-color:black;
+}
+button{
+background-color:#2EFFC6 ;
+margin-left:80px;
+margin-top:30px;
+padding-top:20px;
+padding-bottom:50px;
+height:65px;
+width:200px;
+border: 1px solid black;
+border-radius:60px;
+box-shadow: -8px -6px 8px -4px rgba(255,0,0,0.75),
+
+            8px -6px 8px -4px rgba(0,255,0,0.75),
+
+            8px 6px 8px -4px rgba(255,255,0,0.75),
+
+            -8px 6px 8px -4px rgba(0,0,255,0.75);
+}
+
+
+
+#myDIV {
+  padding-top:-30px;
+  
+  width: 160px;
+  height: 150px;
+  border: 1px ;
+  border-color:blue;
+  animation: mymove 2s infinite;
+border-radius:20%;
+}
+
+@keyframes mymove {
+  50% {border: 20px solid lightblue;}
+}
+
+
+</style>
+<body>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+
+  <body>
+<div id="header"> 
+<div id="menu">
+<input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+      <ul>
+<li><a href="Bitproject.html">Home</a></li>
+<li><a href="about_us.html">About</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="feedback1.html">Feedback</a></li>
+</ul>
+</div>
+</div>
+<center>
+<div id="myDIV">
+<img src="https://www.facultyplus.com/wp-content/uploads/2019/01/Bajaj-logo.png" style="height:150px;width:150px;padding-top:10px;border-width:5px;border-color:red;border-radius:20%;margin-top:-20px;margin-right:50px;"/>
+</div>
+<br/>
+<h1 style="color:white"><u style="color:black;">Bajaj Institute of Technology, Pipri, Wardha</u></h1>
+</center>
+</div>
+<div id="body">
+<center>
+<h1 style="color:#2EFFC6;padding-top:10px"><u><b>Welcome</b></u></h1>
+</center>
+<button>
+<a href="select_your_branch.html"><h2 style="color:black"><b>Click here</b></h2></a>
+</button>
+<br/>
+<br/>
+<!--
+<button style="background-color:red">
+<a href="#33677"><h2 style="color: black "><b>PYQ's</b></h2></a>
+</button>
+--->
+<br/>
+<br/>
+<br/>
+
+<center>
+<div id="links" style="background-color: cyan; height:70%;width:90%;border-radius:30px; ">
+<h2 style="background-color:#2EFFC6;"> Student zone</h2>
+<br/>
+<ul>
+<h3><a href="https://learncprogramiz.page.link/share-app">Android application to learn C </a><h3>
+<h3><a href="https://admission.dbatuapps.in/landing">Online enrollment and registration</a></h3>
+<h3>>>e-resuorces/courses</h3>
+<h4>a. e-book</h4>
+<a href="https://www.pdfdrive.com/">1.Free Books (.pdf) </a>
+</br>
+<a href="https://dbatu.ac.in/wp-content/uploads/2019/12/Springer-Nature-eBooks-Engineering-2015-2019_new.pdf">2.Springer Nature ebook list </a>
+</br>
+<a href="https://www.expresslibrary.mheducation.com">3.McGraw hill India ebook</a>
+<br/>
+<h4>b. e-journals</h4>
+<a href="https://doaj.org/">1.doaj.org</a>
+</br>
+<a href="https://dbatu.ac.in/student-scholarships/"><h3>Student scholarship</h3></a>
+</ul>
+</div>
+<center>
+</div>
+
+</body>
+</html>

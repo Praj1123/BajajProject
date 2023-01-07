@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="eee_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1.The graphical representation of discharge vs time is known as: ",
+    answers:{
+     a:'Load curve',
+     b:'Monograph',
+     c:'Hydrograph',
+     d:'Hectograph',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "2.Water hammer effect occurs in which structure of a DAM: ",
+    answers:{
+     a:'Penstock',
+     b:'Surge tank',
+     c:'Generator',
+     d:'Transformer',
+    },
+   correctAnswer: 'a'
+  },
+ {
+   question: "3. The power plant which has minimum running cost:",
+   answers:{
+     a:'Thermal plant',
+     b:'Hydro plant',
+     c:'Coal power plant',
+     d:'Nuclear power plant',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "4.Economiser is used for heating: ",
+   answers:{
+     a:'Feedwater',
+     b:'Steam',
+     c:'Air',
+     d:'All of these',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.Which one of the following is not a renewable source: ",
+   answers:{
+     a:'Sun',
+     b:'Wind ',
+     c:'Hydro',
+     d:'Uranium',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "6.Fuel transportation is major concern in case of: ",
+    answers:{
+     a:'Hydroelectric power plant',
+     b:'Nuclear power plant',
+     c:'Diesel power plant',
+     d:'Coal power plant',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "7. In hydro power plant, the graph between discharge and time is known as",
+   answers:{
+     a:'monograph',
+     b:'load graph.',
+     c:'discharge graph.',
+     d:'hydro graph.',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "8.Which of the following generating station has minimum running cost? ",
+    answers:{
+     a:'Nuclear',
+     b:'Hydro',
+     c:'Thermal',
+     d:'Diesel',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "9. For the low head and large discharge, the hydraulic turbine used is",
+    answers:{
+     a:'Francis turbine.',
+     b:'Kaplan turbine.',
+     c:'Pelton turbine.',
+     d:' none of the above.  ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "10. Which of following power plant has highest depreciation charges?",
+   answers:{
+     a:'Nuclear plant.',
+     b:'Thermal plant.',
+     c:'Diesel plant.',
+     d:'Hydroelectric plant.  ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "11.The ideal load factor should be ",
+   answers:{
+     a:'unity',
+     b:'zero',
+     c:'negative',
+     d:'infinity',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.If the diversity factor of a power station is high then its generation cost is ",
+   answers:{
+     a:'high.',
+     b:'low',
+     c:'remain same.',
+     d:' depend on the plan type.  ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13. Hydroelectric power stations are generally located in",
+   answers:{
+     a:'plane area.',
+     b:'hilly area.',
+     c:'cold area.',
+     d:'warm area.  ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "14.Diesel power plant are generally used as",
+   answers:{
+     a:'peak load plant.',
+     b:'base load plant.',
+     c:'standby plant.',
+     d:' none of the above.    ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "15. The primary reason for low power factor in supply system is due to installation of",
+   answers:{
+     a:' induction motors.',
+     b:'synchronous motors.',
+     c:'single phase motors.',
+     d:'d.c. motors.  ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "16.A gas turbine basically work on ",
+   answers:{
+     a:'Carnot cycle.',
+     b:'Rankin cycle.',
+     c:'Brayton cycle.',
+     d:'Dual cycle.',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "17. Which of the following is usually not the generating voltage ",
+    answers:{
+     a: '6.6 kV.',
+     b:'9.9 kV.',
+     c:'11kV.',
+     d:'13.2kV.  ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "18. The overall efficiency of a steam power station is _______ its thermal efficiency.",
+   answers:{
+     a:'less than',
+     b:'equal to',
+     c:'greater than',
+     d:'none of the above  ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.Which of the following power plant usually offer highest maintenance cost? ",
+   answers:{
+     a:'Nuclear power plants.',
+     b:'Hydro-electric power plants.',
+     c:'Thermal power plants.',
+     d:'Diesel engine power plants.        ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "20.Which of the following Power Plant causes least environmental pollution? ",
+    answers:{
+     a:'Thermal Power Plant.',
+     b:'Hydro Power Plant.',
+     c:'Nuclear Power Plant.',
+     d:' Diesel Power Plant.    ',
+    },
+   correctAnswer: 'b'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

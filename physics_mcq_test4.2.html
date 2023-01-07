@@ -1,0 +1,366 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="notes_containt.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+   {
+        question: "1.The relation between atomic radius r and lattice constant a for the BCC structure is ",
+        answers:{
+         a:'a=2r',
+         b:'a= 4r/root 3',
+         c:'a=root 3r/4',
+         
+        },
+   correctAnswer: 'c'
+  },
+    {
+        question: "2.An X-ray has a wavelength of 0.01A0. Find its momentum ",
+        answers:{
+         a:'6.6×10-22kg m/s',
+         b:'3.4×10-25kg m/s',
+         c:'2.12 ×10-23kg m/s',
+       
+        },
+     correctAnswer: 'a'
+   },
+    {
+        question: "3.When fast moving electrons hit the target,about 80% energy is used to melt thetarget and remaining energy is converted into invisible rays of very short wavelength Called as",
+        answers:{
+         a:'Cathode rays',
+         b:'Positive rays',
+         c:'X-rays',
+         d:'X-rays',
+        },
+     correctAnswer: 'c'
+   },
+  {
+        question: "4.In continuous X-ray spectra, the wavelength of X-rays is inversely propotional to ",
+        answers:{
+         a:'K.E. of electrons',
+         b:'the applied potential',
+         c:'P.E. of target material',
+         d:'rotational energy',
+        },
+        correctAnswer: 'b'
+    },
+  {
+        question: "5.On increasing the number of electrons striking the anode of an X-ray tube whichof the following characteristics of the X-ray increase? ",
+        answers:{
+         a:'Frequency',
+         b:'Intensity',
+         c:'Wavelength',
+         d:'power',
+        },
+        correctAnswer: 'b'
+  },
+  {
+        question: "6.Wavelength of visible light is more than that of X-rays ,What is the velocity of X-rays in vaccum? ",
+        answers:{
+         a:'Less than velocity of light',
+         b:'Greater than velocity of light',
+         c:'Same as velocity of light',
+         d:'Sometimes less and sometimes greater than velocity of light',
+        },
+        correctAnswer: 'c'
+  },
+  {
+        question: "7.X-rays and γ rays are both electromagnetic waves .Which of the followingstatement is true? ",
+        answers:{
+         a:'In general X-rays have larger wavelength than of γ rays',
+         b:'Wavelength and frequency of X-rays are both that of γ rays',
+         c:'X-rays have smaller wavelength than that of γ rays',
+         d:'γ rays have smaller frequency than that of X-rays',
+        },
+        correctAnswer: 'a'
+  },
+  {
+        question: "8. The continuous X-ray spectra produced by an X-ray machine at constant voltage  has which of the following",
+        answers:{
+         a: 'Maximum wavelength',
+         b:'minimum wavelength',
+         c:'minimum frequency',
+         d:'single wavelength',
+        },
+        correctAnswer: 'b'
+  },
+  {
+        question: "9. Charactristics or line X-ray spectra are not excited by which one of the following",
+        answers:{
+         a:'Neutron bombardment',
+         b:'Proton bombardment',
+         c:'α ray absorption',
+         d:'Electron bombardment',
+        },
+        correctAnswer: 'c'
+  },
+  {
+        question: "10.What happens when fast moving electrons are stopped and fall on the metallic target in an evacuated glass bulb ",
+        answers:{
+         a:'γ rays are produced',
+         b:'X rays are produced',
+         c:'β rays are produced',
+         d:'Reflected back',
+        },
+        correctAnswer: 'b'
+  },
+  {
+        question: "11. In producing X-ray beam of electrons accelerated by a potential difference V are made to strike a metal target. For what value of V of the following X-rays have the lowest wavelength.Useλmin=0.3094 A0",
+        answers:{
+         a: '40 KV',
+         b:'30 KV',
+         c:'20 KV',
+         d:'10 KV',
+        },
+        correctAnswer: 'a'
+  },
+  {
+        question: "12.The void space in simple cubic structure is ",
+        answers:{
+          a:'48',
+         b:'23',
+         c:'52',
+         d:'50',
+        },
+     correctAnswer: 'a'
+  },
+  {
+        question: "13. Example of Body Centered cubic structure is",
+        answers:{
+         a: 'Polonium',
+         b:'Diamond',
+         c:'Na',
+         
+        },
+         correctAnswer: 'c'
+  },
+  {
+        question: "14. Example of Face Centered cubic structure is",
+        answers:{
+         a: 'Copper',
+         b:'Diamond',
+         c:'Sodium',
+          d:'polonium',
+        },
+     correctAnswer: 'a'
+  },
+  {
+        question: "15. X-ray is  ---------- charge particle?  ",
+        answers:{
+         a: 'Positively  ',
+         b:'Negatively ',
+         c:' Both Positive & Negative  ',
+         d:'Charge less',
+        },
+     correctAnswer: 'd'
+  },
+  {
+        question: "16.According to Moseley’s law properties of an elements are determined by ",
+        answers:{
+         a:'atomic mass',
+         b:'atomic structure ',
+         c:' atomic energy',
+         d:'atomic number',
+        },
+     correctAnswer: 'd'
+   },
+   {
+        question: "17.Number of atoms per unit cell for Simple Cubic structure is ",
+        answers:{
+         a:'1',
+         b:'2',
+         c:'4',
+         d:'None of above',
+        },
+       correctAnswer: 'a'
+   },
+    {
+        question: "18.Co-ordination Number for Body centered Cubic structure is ",
+        answers:{
+         a:'6',
+         b:'8',
+         c:'12',
+         d:'None of above',
+        },
+     correctAnswer: 'b'
+ },
+   {
+        question: "19.Number of atoms per unit cell for Body centered Cubic structure is ",
+        answers:{
+         a:'1',
+         b:'2',
+         c:'4',
+         d:'None of above',
+        },
+     correctAnswer: 'b'
+    },
+    {
+        question: "20.The minimum wavelength of X-rays in continuous spectrum is --------- proportional to potential difference between cathode and anode. ",
+        answers:{
+         a:'Directly proportional',
+         b:'Inversely proportional',
+         c:'Equal ',
+         d:'None of above',
+        },
+     correctAnswer: 'b'
+    },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>

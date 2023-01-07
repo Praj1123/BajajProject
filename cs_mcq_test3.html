@@ -1,0 +1,367 @@
+<html>
+<head>
+<style>
+#header{
+height:50px;
+width:100%;
+background-color:yellow;
+text-align:center;
+padding-top:2%;
+padding-bottom:5%;
+color:black;
+margin-bottom:20px;
+}
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color:white;
+  background-color:black;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #297;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #3a8;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 60%;
+}
+</style>
+</head>
+<body>
+<div id="back" style="width:100%; height:10%; padding-left:10px;padding-top:10px;background-color:yellow">
+<a href="cs_index.html" class="previous round">Back</a>
+</div>
+<div id="quiz" style="margin-top:40px;">
+<hr/>
+</div>
+<button id="submit">Show Result</button>
+<div id="results"></div>
+<script>
+var myQuestions = [
+{
+   question: "1. The English ___ won the world cup.",
+    answers:{
+     a:' is',
+     b:'has',
+     c:'have',
+     d:'are ',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "2. Identify the type of sentence, “The police caught the criminals who looted the mall",
+    answers:{
+     a:'Simple sentence ',
+     b:' Compound sentence ',
+     c:'Complex sentence ',
+     d:'Passive sentence ',
+    },
+   correctAnswer: 'c'
+  },
+ {
+   question: "3.India is located in the _______ side of the Pakistan ? The ants fought the wasps” is an example of ___ sentence",
+   answers:{
+     a:' simple ',
+     b:'compound ',
+     c:'complex ',
+     d:'subordinate ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "4.Somebody ___(Play) the drums”. The simple past form of the word ‘play’ to fill the blank is ___",
+   answers:{
+     a:'played ',
+     b:'was playing ',
+     c:'Norhad playedth ',
+     d:'had been playing',
+    },
+   correctAnswer: 'a'
+  },
+  {
+   question: "5.Susan made up her mind to speak to me. The meaning of the phrase “made up” in the given sentence is ___",
+   answers:{
+     a:'mixed ',
+     b:'decided ',
+     c:'thought ',
+     d:'contemplate',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "6.The first model of communication is said to have been developed by ___",
+    answers:{
+     a:' Plato ',
+     b:'Aristotle ',
+     c:'Ptolemy ',
+     d:'Steiner ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "7.According to Hoben, “___ is the verbal interchange of thought or idea.",
+   answers:{
+     a:' Concept ',
+     b:'Writing skills ',
+     c:'Communication',
+     d:'Oral Skills',
+    },
+   correctAnswer: 'c'
+  },
+  {
+   question: "8.Chester I Bernard observed that ___ linked people together in an organization to achieve a common purpose",
+    answers:{
+     a:'communication ',
+     b:'only documents ',
+     c:'Friendship',
+     d:'gossip',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "9. A group of words that makes complete sense or gives complete meaning is called a ___.",
+    answers:{
+     a:'clause',
+     b:'phrase',
+     c:'principal clause',
+     d:'sentence',
+    },
+   correctAnswer: 'd'
+  },
+  {
+    question: "10.During an oral presentation, ___ is the stage where you tell the audience, the aim of your presentation.",
+   answers:{
+     a:'Background ',
+     b:'Introduction ',
+     c:'Conclusion ',
+     d:' Question session ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "11.A Sentence always begins with a _______________",
+   answers:{
+     a:'Capital letter ',
+     b:'Small letter ',
+     c:'Symbol ',
+     d:'None of the above ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "12.Question mark(?) symbol is used at the ________ of the sentence  ",
+   answers:{
+     a:'Middle ',
+     b:'Beginning ',
+     c:'End ',
+     d:'All of the above ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "13.Which of the following symbol represent exclamation sign? ",
+   answers:{
+     a:'? ',
+     b:'!',
+     c:'” “ ',
+     d:'; ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+   question: "14.____________ is a set of simple rules that help you to capitalise words correctly",
+   answers:{
+     a:'SIMPLE ',
+     b:'MINT ',
+     c:'MINTS     .',
+     d:'COMP .',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "15 Which of the following is not a punctuation mark?.",
+   answers:{
+     a:'?    .',
+     b:'< ',
+     c:'!     .',
+     d:', .',
+    },
+   correctAnswer: 'c'
+  },
+  {
+    question: "16.We use _____________ followed by an ‘s’ to show that something belongs to someone ",
+   answers:{
+     a:'  Apostrophe ',
+     b:'Comma ',
+     c:'Question mark ',
+     d:' Full stop ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "17. Which of the following is a part of speech?",
+    answers:{
+     a: ' Noun',
+     b:'Pronoun',
+     c:' Verb ',
+     d:'all of the above ',
+    },
+   correctAnswer: 'd'
+  },
+  {
+   question: "18. A __________ is a word for a person, place, thing, or idea. ",
+   answers:{
+     a:'Noun ',
+     b:'Pronoun ',
+     c:'Verb ',
+     d:'Adverb ',
+    },
+   correctAnswer: 'a'
+  },
+  {
+    question: "19.A ___________ is a word used in place of a noun.",
+   answers:{
+     a:'Verb ',
+     b:'Pronoun ',
+     c:'Adverb ',
+     d:'Adjective ',
+    },
+   correctAnswer: 'b'
+  },
+  {
+    question: "20 _______________ is a word used to express emotion.",
+    answers:{
+     a:'Interjection',
+     b:'Conjunction',
+     c:'Preposition',
+     d:'Adjective',
+    },
+   correctAnswer: 'a'
+  },
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+  function showQuestions(questions, quizContainer){
+    // we'll need a place to store the output and the answer choices
+    var output = [];
+    var answers;
+
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+      
+      // first reset the list of answers
+      answers = [];
+
+      // for each available answer...
+      for(letter in questions[i].answers){
+
+        // ...add an html radio button
+        answers.push(
+          '<label>'
+            + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+            + letter + ': '
+            + questions[i].answers[letter]
+          + '</label>'
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        '<div class="question">' + questions[i].question + '</div>'
+        + '<div class="answers">' + answers.join('') + '</div>'
+      );
+    }
+
+    // finally combine our output list into one string of html and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+
+  function showResults(questions, quizContainer, resultsContainer){
+    
+    // gather answer containers from our quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    // keep track of user's answers
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    // for each question...
+    for(var i=0; i<questions.length; i++){
+
+      // find selected answer
+      userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+      
+      // if answer is correct
+      if(userAnswer===questions[i].correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+        
+        // color the answers green
+        answerContainers[i].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[i].style.color = 'red';
+      }
+    }
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+  }
+
+  // show questions right away
+  showQuestions(questions, quizContainer);
+  
+  // on submit, show results
+  submitButton.onclick = function(){
+    showResults(questions, quizContainer, resultsContainer);
+  }
+
+}
+</script>
+</body>
+</html>
